@@ -7,12 +7,15 @@ import BookManager.Book;
 public class Main{
 
     public static void main(String[] args) {
-        Book[] listBook = new Book[2];
-
-        Book newBook = new Book();
-
-        listBook[0] = newBook;
-
-        listBook[0].display();
+        String filePath = "V:\\Develop\\Develop IntelliJ IDEA\\Project_1\\src\\data\\input.txt";
+        // Hãy thay đổi đường dẫn file trên tùy thuộc vào IDE hoặc text-editor đang sử dụng
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
