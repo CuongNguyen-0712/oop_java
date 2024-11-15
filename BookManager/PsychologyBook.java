@@ -5,12 +5,12 @@ class PsychologyBook extends Book
     private String audience;
     private static int count = 0;  //gán tạm bằng 0 nha
 
-     public PyschologyBook()
+     public PsychologyBook()
     {
         audience = "";
     }
 
-    public PyschologyBook(String id, String name, String author, String publisher, int cost, int quantity, String audience)
+    public PsychologyBook(String id, String name, String author, String publisher, int cost, int quantity, String audience)
     {
         super(id, name, author, publisher, cost, quantity);
         this.audience = audience;

@@ -24,6 +24,8 @@ class LiteratureBook extends Book
         nation = rd.nextLine();
     }
 
+    // @Override public void display()
+
     public static void countBook()
     {
         count++;
