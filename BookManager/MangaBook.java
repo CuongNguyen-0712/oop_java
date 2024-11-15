@@ -10,9 +10,9 @@ class MangaBook extends Book
         volume = 0;
     }
 
-    public Manga(String id, String name, String author, String publisher, int volume)
+    public Manga(String id, String name, String author, String publisher, int cost, int quantity, int volume)
     {
-        super(id, name, author, publisher);
+        super(id, name, author, publisher, cost, quantity);
         this.volume = volume;
     }
     

@@ -10,9 +10,9 @@ class PsychologyBook extends Book
         audience = "";
     }
 
-    public PyschologyBook(String id, String name, String author, String publisher, String audience)
+    public PyschologyBook(String id, String name, String author, String publisher, int cost, int quantity, String audience)
     {
-        super(id, name, author, publisher);
+        super(id, name, author, publisher, cost, quantity);
         this.audience = audience;
     }
 
