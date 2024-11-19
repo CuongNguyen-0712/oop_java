@@ -1,28 +1,47 @@
 package BookManager;
-import inputValue.inputScanner;
 
-public class Book {
+import feature.inputScanner;
+import IBook.IBookStore;
+
+public class Book implements IBookStore {
     String name;
     String id;
 
-    public Book(){
+    public Book() {
 
     }
 
-    public Book(String name, String id){
+    public Book(String name, String id) {
         this.name = name;
         this.id = id;
     }
 
-    public void inputValue(){
-        System.out.print("Nhập tên sách: ");
-        name = inputScanner.input.nextLine();
+    public void setName(String name){
+        this.name = name;
+    }
 
-        System.out.print("Nhập mã sách: ");
+    public void setId(String id){
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    @Override
+    public void add() {
+        System.out.print("Nhap ten sach: ");
+        name = inputScanner.input.nextLine();
+        System.out.print("Nhap ma sach: ");
         id = inputScanner.input.nextLine();
     }
 
-    public void display(){
+    @Override
+    public void display() {
         System.out.println("Ten sach: " + name);
         System.out.println("Ma sach: " + id);
     }

@@ -1,4 +1,6 @@
 package StaffManager;
 
-abstract class Staff {
+abstract public class Staff {
+    String name;
+
 }
