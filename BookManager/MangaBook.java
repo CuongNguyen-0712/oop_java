@@ -1,18 +1,19 @@
 package BookManager;
 import inputValue.inputScanner;
+import java.util.Vector;
 
 class MangaBook extends Book
 {
     private int volume;
     private static int count = 0;
 
-    public Manga()
+    public MangaBook()
     {
         volume = 0;
         count++;
     }
 
-    public Manga(String id, String name, String author, String publisher, int cost, int quantity, int volume)
+    public MangaBook(String id, String name, String author, String publisher, int cost, int quantity, int volume)
     {
         super(id, name, author, publisher, cost, quantity);
         this.volume = volume;

@@ -1,5 +1,6 @@
 package BookManager;
 import inputValue.inputScanner;
+import java.util.Vector;
 
 public class BookManager 
 {
@@ -25,18 +26,18 @@ public class BookManager
     {
         do
         {
-            System.out.println("Chon loai sach ban muon them: 1. Sach Tam Ly Hoc  2. Manga   3. Sach Van Hoc");
+            System.out.println("Chon loai sach ban muon them: 1. Sach Tam Ly Hoc  2. MangaBook   3. Sach Van Hoc");
             choice = inputScanner.input.nextInt();
 
             switch(choice)
             {
                 case 1: 
-                    PyschologyBook pb = new PyschologyBook();
+                    PsychologyBook pb = new PsychologyBook();
                     pb.add();
                     listOfBook.add(pb);
                     break;
                 case 2: 
-                    Manga mg = new Manga();
+                    MangaBook mg = new MangaBook();
                     mg.add();
                     listOfBook.add(mg);
                     break;
@@ -54,7 +55,7 @@ public class BookManager
 
     public void delete()
     {
-        inputScanner.input.nextLine()
+        inputScanner.input.nextLine();
         System.out.println("Nhap ma sach muon xoa: ");
         String id = inputScanner.input.nextLine();
 
@@ -66,15 +67,15 @@ public class BookManager
             {
                 if(listOfBook.get(i) instanceof PsychologyBook)
                 {
-                    ((PsychologyBook) listOfBook.get(i)).deCountBook();
+                    PsychologyBook.deCountBook();
                 }
-                else if(listOfBook.get(i) instanceof Manga)
+                else if(listOfBook.get(i) instanceof MangaBook)
                 {
-                    ((Manga) listOfBook.get(i)).deCountBook();
+                    MangaBook.deCountBook();
                 }
                 else
                 {
-                    ((LiteratureBook) listOfBook.get(i)).deCountBook();
+                    LiteratureBook.deCountBook();
                 }
                 listOfBook.remove(i);
                 flag = true;
@@ -90,7 +91,7 @@ public class BookManager
     public void change()
     {   
         boolean flag = true;
-        inputScanner.input.nextLine()
+        inputScanner.input.nextLine();
         System.out.println("Nhap ma sach muon sua: ");
         String id =  inputScanner.input.nextLine();
 
@@ -110,7 +111,7 @@ public class BookManager
                     System.out.println("6. Best Seller");
                     System.out.println("7. Thong tin rieng cua sach");
                     int choice =   inputScanner.input.nextInt();
-                    inputScanner.input.nextLine()
+                    inputScanner.input.nextLine();
 
                     switch(choice)
                     {
@@ -151,11 +152,11 @@ public class BookManager
                                 String audience = inputScanner.input.nextLine();
                                 ((PsychologyBook) listOfBook.get(i)).setAudience(audience);
                             }
-                            else if(listOfBook.get(i) instanceof Manga)
+                            else if(listOfBook.get(i) instanceof MangaBook)
                             {
                                 System.out.println("Nhap so tap: ");
-                                int volume  inputScanner.input.nextInt();
-                                ((Manga) listOfBook.get(i)).setVolume(volume);
+                                int volume = inputScanner.input.nextInt();
+                                ((MangaBook) listOfBook.get(i)).setVolume(volume);
                             }
                             else
                             {
@@ -184,7 +185,7 @@ public class BookManager
     
     public void search()
     {
-        inputScanner.input.nextLine()
+        inputScanner.input.nextLine();
         boolean flag = false;
         System.out.println("Nhap ma sach muon tim: ");
         String id = inputScanner.input.nextLine();
@@ -214,7 +215,7 @@ public class BookManager
     public void countBookByCategory()
     {
         System.out.println("So luong sach Tam Li Hoc: " + PsychologyBook.countBook());
-        System.out.println("So luong Manga: " + Manga.countBook());
+        System.out.println("So luong MangaBook: " + MangaBook.countBook());
         System.out.println("So luong sach Van Hoc: " + LiteratureBook.countBook());
     }
 
