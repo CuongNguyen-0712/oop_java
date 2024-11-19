@@ -27,4 +27,4 @@ class Cashier extends Staff{
     }
 }
 
-}
+

@@ -3,10 +3,10 @@ package StaffManager;
 class Librarian extends Staff{
     private String specialization;
 
-    public Librian() {
+    public Librarian() {
     }
 
-    public Librian(Staff newLibrian, String specialization) {
+    public Librarian(Staff newLibrian, String specialization) {
         super(newLibrian);
         this.specialization = specialization;
     }

@@ -1,4 +1,6 @@
 package StaffManager;
+import IBook.IBookStore;
+import inputValue.inputScanner;
 
 abstract class Staff implements IBookStore {
     private String id;
@@ -22,14 +24,16 @@ abstract class Staff implements IBookStore {
 
     @Override
     public void add() {
-
+        System.out.println("Nhap ten nhan vien :");
+        name = inputScanner.input.nextLine();
+        System.out.println("Nhap luong cua nhan vien : ");
+        salary = inputScanner.input.nextInt();
+        inputScanner.input.nextLine();
     }
 
-    @Override
-    public void display() {
-
+    public String getID(){
+        return id;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -46,8 +50,5 @@ abstract class Staff implements IBookStore {
         return salary;
     }
 
-    @Override
-    public void work() {
-
-    }
+    public abstract void work();
 }
