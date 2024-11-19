@@ -1,13 +1,15 @@
 package BookManager;
+import inputValue.inputScanner;
 
 class PsychologyBook extends Book
 {
     private String audience;
     private static int count = 0;  //gán tạm bằng 0 nha
 
-     public PsychologyBook()
+    public PsychologyBook()
     {
         audience = "";
+        count++;
     }
 
     public PsychologyBook(String id, String name, String author, String publisher, int cost, int quantity, String audience)
@@ -16,21 +18,25 @@ class PsychologyBook extends Book
         this.audience = audience;
     }
 
+    public static int countBook()
+    {
+        return count;
+    }
+
+    public static void deCountBook()
+    {
+        count--;
+    }
+
     @Override
     public void add()
     {
         super.add();
         System.out.println("Nhap doi tuong doc gia:");
-        audience = rd.nextLine();
-       
+        audience = inputScanner.input.nextLine();
     }
 
     // @Override public void display()
-
-    public static void countBook()
-    {
-        count++;
-    }
 
     public String getAudience()
     {

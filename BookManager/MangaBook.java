@@ -1,4 +1,5 @@
 package BookManager;
+import inputValue.inputScanner;
 
 class MangaBook extends Book
 {
@@ -8,6 +9,7 @@ class MangaBook extends Book
     public Manga()
     {
         volume = 0;
+        count++;
     }
 
     public Manga(String id, String name, String author, String publisher, int cost, int quantity, int volume)
@@ -15,21 +17,26 @@ class MangaBook extends Book
         super(id, name, author, publisher, cost, quantity);
         this.volume = volume;
     }
-    
+
+    public static int countBook()
+    {
+        return count;
+    }
+
+    public static void deCountBook()
+    {
+        count--;
+    }
+
     @Override 
     public void add()
     {
         super.add();
         System.out.println("Nhap so tap: ");
-        volume = rd.nextInt();
+        volume = inputScanner.input.nextInt();
     }
 
     // @Override public void display()
-    
-    public static void countBook()
-    {
-        count++;
-    }
 
     public int getVolume()
     {

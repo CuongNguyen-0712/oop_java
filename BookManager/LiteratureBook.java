@@ -1,4 +1,5 @@
 package BookManager;
+import inputValue.inputScanner;
 
 class LiteratureBook extends Book
 {
@@ -8,6 +9,7 @@ class LiteratureBook extends Book
     public LiteratureBook()
     {
         nation = "";
+        count++;
     }
 
     public LiteratureBook(String id, String name, String author, String publisher, int cost, int quantity, String nation)
@@ -16,20 +18,25 @@ class LiteratureBook extends Book
         this.nation = nation;
     }
 
+    public static int countBook()
+    {
+        return count;
+    }
+
+    public static void deCountBook()
+    {
+        count--;
+    }
+
     @Override 
     public void add()
     {
         super.add();
         System.out.println("Tac pham thuoc ve quoc gia: ");
-        nation = rd.nextLine();
+        nation = inputScanner.input.nextLine();
     }
 
     // @Override public void display()
-
-    public static void countBook()
-    {
-        count++;
-    }
 
     public String getNation()
     {

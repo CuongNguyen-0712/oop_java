@@ -48,20 +48,15 @@ public class Book
         System.out.println("Nhap so luong: ");
         quantity = inputScanner.input.nextInt();
 
-        rd.nextLine();
+        inputScanner.input.nextLine();
 
-        System.out.println("Sach nay co phai bestseller khong?");
+        System.out.println("Sach nay co phai bestseller khong? (y/n)");
         bestSeller = inputScanner.input.nextLine();
         
-        isBestSeller = bestSeller.equalsIgnoreCase("dung");
-
+        isBestSeller = bestSeller.equalsIgnoreCase("y");
     }
 
-    public void display()
-    {
-        System.out.println("Ma sach: " + id);
-        System.out.println("Ten sach: " + name);
-    }
+    //  public void display()
 
     public String getID()
     {
