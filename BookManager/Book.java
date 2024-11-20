@@ -1,7 +1,8 @@
 package BookManager;
 import inputValue.inputScanner;
+import IBook.IBookStore;
 
-public class Book 
+public class Book implements IBookStore
 {
     private String id, name, author, publisher;
     private int cost, quantity;
@@ -10,7 +11,7 @@ public class Book
 
     public Book()
     {
-        id = "";
+        id = BookManager.getId();
         name = "";
         author = "";
         publisher = "";
@@ -28,11 +29,9 @@ public class Book
         this.quantity = quantity;
     }
 
+    @Override
     public void add()
     {
-        System.out.print("Nhap ma sach: "); 
-        id = inputScanner.input.nextLine();
-
         System.out.print("Nhap ten sach: ");
         name = inputScanner.input.nextLine();
 
@@ -56,7 +55,11 @@ public class Book
         isBestSeller = bestSeller.equalsIgnoreCase("y");
     }
 
-    //  public void display()
+    @Overridve
+    public void display()
+    {
+        
+    }
 
     public String getID()
     {

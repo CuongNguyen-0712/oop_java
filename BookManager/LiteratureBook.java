@@ -36,7 +36,10 @@ class LiteratureBook extends Book
         nation = inputScanner.input.nextLine();
     }
 
-    // @Override public void display()
+    @Override public void display()
+    {
+        
+    }
 
     public String getNation()
     {

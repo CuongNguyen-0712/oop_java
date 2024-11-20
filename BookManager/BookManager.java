@@ -1,10 +1,12 @@
 package BookManager;
 import inputValue.inputScanner;
+import java.util.Vector;
+import IBook.IBookStore;
 
-public class BookManager 
+public class BookManager implements IBookStore
 {
-    private int choice;
     private Vector<Book> listOfBook = new Vector<>();
+    public static int count = 0;
 
     public BookManager()
     {
@@ -21,13 +23,19 @@ public class BookManager
         return listOfBook;
     }
 
+    public String getId()
+    {
+        return "Book" + (count++);
+    }
+
+    @Override
     public void add()
     {
         do
         {
             System.out.println("Chon loai sach ban muon them: 1. Sach Tam Ly Hoc  2. Manga   3. Sach Van Hoc");
-            choice = inputScanner.input.nextInt();
-
+            int choice = inputScanner.input.nextInt();
+            inputScanner.input.nextLine();
             switch(choice)
             {
                 case 1: 
@@ -36,7 +44,7 @@ public class BookManager
                     listOfBook.add(pb);
                     break;
                 case 2: 
-                    Manga mg = new Manga();
+                    Manga mg = new MangaBook();
                     mg.add();
                     listOfBook.add(mg);
                     break;
@@ -48,33 +56,32 @@ public class BookManager
                 default:
                     System.out.println("Lua chon khong hop le !!!\n");
             }
-
         }while(choice < 1 || choice > 3);
     }
 
     public void delete()
     {
-        inputScanner.input.nextLine()
+        inputScanner.input.nextLine();
         System.out.println("Nhap ma sach muon xoa: ");
         String id = inputScanner.input.nextLine();
 
         boolean flag = false;
 
-        for(int i = 0;i < listOfBook.size();i++)
+        for(int i = 0; i < listOfBook.size() ;i++)
         {
             if(listOfBook.get(i).getID().equalsIgnoreCase(id))
             {
                 if(listOfBook.get(i) instanceof PsychologyBook)
                 {
-                    ((PsychologyBook) listOfBook.get(i)).deCountBook();
+                    PsychologyBook.deCountBook();
                 }
-                else if(listOfBook.get(i) instanceof Manga)
+                else if(listOfBook.get(i) instanceof MangaBook)
                 {
-                    ((Manga) listOfBook.get(i)).deCountBook();
+                    MangaBook.deCountBook();
                 }
                 else
                 {
-                    ((LiteratureBook) listOfBook.get(i)).deCountBook();
+                    LiteratureBook.deCountBook();
                 }
                 listOfBook.remove(i);
                 flag = true;
@@ -90,11 +97,11 @@ public class BookManager
     public void change()
     {   
         boolean flag = true;
-        inputScanner.input.nextLine()
+        inputScanner.input.nextLine();
         System.out.println("Nhap ma sach muon sua: ");
         String id =  inputScanner.input.nextLine();
 
-        for(int i = 0;i < listOfBook.size();i++)
+        for(int i = 0 ;i < listOfBook.size();i++)
         {
             if(listOfBook.get(i).getID().equalsIgnoreCase(id))
             {
@@ -109,8 +116,8 @@ public class BookManager
                     System.out.println("5. So luong");
                     System.out.println("6. Best Seller");
                     System.out.println("7. Thong tin rieng cua sach");
-                    int choice =   inputScanner.input.nextInt();
-                    inputScanner.input.nextLine()
+                    int choice =  inputScanner.input.nextInt();
+                    inputScanner.input.nextLine();
 
                     switch(choice)
                     {
@@ -151,11 +158,11 @@ public class BookManager
                                 String audience = inputScanner.input.nextLine();
                                 ((PsychologyBook) listOfBook.get(i)).setAudience(audience);
                             }
-                            else if(listOfBook.get(i) instanceof Manga)
+                            else if(listOfBook.get(i) instanceof MangaBook)
                             {
                                 System.out.println("Nhap so tap: ");
-                                int volume  inputScanner.input.nextInt();
-                                ((Manga) listOfBook.get(i)).setVolume(volume);
+                                int volume = inputScanner.input.nextInt();
+                                ((MangaBook) listOfBook.get(i)).setVolume(volume);
                             }
                             else
                             {
@@ -168,7 +175,7 @@ public class BookManager
                             System.out.println("Lua chon khong hop le!!!\n");
                     } 
 
-                }while(choice < 1 || choice > 5);
+                }while(choice < 1 || choice > 7);   //không quay lại nhập được nhưng tui không nhìn ra sai ở đâu
                 break;
             }
             else
@@ -184,12 +191,12 @@ public class BookManager
     
     public void search()
     {
-        inputScanner.input.nextLine()
+        inputScanner.input.nextLine();  
         boolean flag = false;
         System.out.println("Nhap ma sach muon tim: ");
         String id = inputScanner.input.nextLine();
 
-        for(int i = 0;i < listOfBook.size();i++)
+        for(int i = 0; i < listOfBook.size();i++)
         {
             if(listOfBook.get(i).getID().equalsIgnoreCase(id))
             {
@@ -217,6 +224,4 @@ public class BookManager
         System.out.println("So luong Manga: " + Manga.countBook());
         System.out.println("So luong sach Van Hoc: " + LiteratureBook.countBook());
     }
-
-
 }

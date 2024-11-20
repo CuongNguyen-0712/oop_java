@@ -36,7 +36,10 @@ class PsychologyBook extends Book
         audience = inputScanner.input.nextLine();
     }
 
-    // @Override public void display()
+    @Override public void display()
+    {
+        
+    }
 
     public String getAudience()
     {
