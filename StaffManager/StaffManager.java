@@ -174,4 +174,8 @@ public class StaffManager implements IBookStore {
 
         }
     }
+    public Vector<Staff> getList()
+    {
+        return listOfStaff;
+    }
 }
