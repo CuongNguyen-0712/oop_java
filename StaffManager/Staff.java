@@ -8,6 +8,7 @@ abstract class Staff implements IBookStore {
     private int salary;
 
     public Staff() {
+        id = StaffManager.getId();
     }
 
     public Staff(Staff newStaff) {

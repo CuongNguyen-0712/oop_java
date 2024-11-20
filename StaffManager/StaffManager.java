@@ -6,6 +6,7 @@ import java.util.Vector;
 
 public class StaffManager implements IBookStore {
     private Vector<Staff> listOfStaff;
+    private static int member = 0;
 
     @Override
     public void add() {
@@ -177,5 +178,8 @@ public class StaffManager implements IBookStore {
     public Vector<Staff> getList()
     {
         return listOfStaff;
+    }
+    public static String getId() {
+        return "Staff" + member++;
     }
 }
