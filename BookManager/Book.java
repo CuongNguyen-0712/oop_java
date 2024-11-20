@@ -1,15 +1,15 @@
 package BookManager;
-import inputValue.inputScanner;
 
-public class Book 
-{
+import inputValue.inputScanner;
+import IBook.IBookStore;
+
+public class Book implements IBookStore {
     private String id, name, author, publisher;
     private int cost, quantity;
     String bestSeller;
     boolean isBestSeller;
 
-    public Book()
-    {
+    public Book() {
         id = "";
         name = "";
         author = "";
@@ -18,8 +18,7 @@ public class Book
         quantity = 0;
     }
 
-    public Book(String id, String name, String author, String publisher, int cost, int quantity)
-    {
+    public Book(String id, String name, String author, String publisher, int cost, int quantity) {
         this.id = id;
         this.name = name;
         this.author = author;
@@ -28,9 +27,9 @@ public class Book
         this.quantity = quantity;
     }
 
-    public void add()
-    {
-        System.out.print("Nhap ma sach: "); 
+    @Override
+    public void add() {
+        System.out.print("Nhap ma sach: ");
         id = inputScanner.input.nextLine();
 
         System.out.print("Nhap ten sach: ");
@@ -52,69 +51,60 @@ public class Book
 
         System.out.println("Sach nay co phai bestseller khong? (y/n)");
         bestSeller = inputScanner.input.nextLine();
-        
+
         isBestSeller = bestSeller.equalsIgnoreCase("y");
     }
 
-    //  public void display()
+    @Override
+    public void display() {
 
-    public String getID()
-    {
+    }
+
+    public String getID() {
         return id;
     }
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    public String getAuthor()
-    {
+    public String getAuthor() {
         return author;
     }
 
-    public String getPublisher()
-    {
+    public String getPublisher() {
         return publisher;
     }
 
-    public int getCost()
-    {
+    public int getCost() {
         return cost;
     }
 
-    public int getQuantity()
-    {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setName(String newName)
-    {
+    public void setName(String newName) {
         name = newName;
     }
 
-    public void setAuthor(String newAuthor)
-    {
+    public void setAuthor(String newAuthor) {
         author = newAuthor;
     }
 
-    public void setPublisher(String newPublisher)
-    {
+    public void setPublisher(String newPublisher) {
         publisher = newPublisher;
     }
 
-    public void setCost(int newCost)
-    {
+    public void setCost(int newCost) {
         cost = newCost;
     }
 
-    public void setQuantity(int newQuantity)
-    {
+    public void setQuantity(int newQuantity) {
         quantity = newQuantity;
     }
 
-    public void setIsBestSeller(boolean newIsBestSeller)
-    {
+    public void setIsBestSeller(boolean newIsBestSeller) {
         isBestSeller = newIsBestSeller;
     }
 }

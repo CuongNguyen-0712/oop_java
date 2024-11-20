@@ -1,6 +1,5 @@
 package BookManager;
 import inputValue.inputScanner;
-import java.util.Vector;
 
 class MangaBook extends Book
 {
