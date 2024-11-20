@@ -26,7 +26,7 @@ abstract class Staff implements IBookStore {
     public void add() {
         System.out.println("Nhap ten nhan vien :");
         name = inputScanner.input.nextLine();
-        System.out.println("Nhap luong cua nhan vien : ");
+        System.out.println("Nhap luong co ban cua nhan vien : ");
         salary = inputScanner.input.nextInt();
         inputScanner.input.nextLine();
     }
@@ -51,4 +51,6 @@ abstract class Staff implements IBookStore {
     }
 
     public abstract void work();
+    public abstract String getOwnAtributte();
+    public abstract void showUnique();
 }
