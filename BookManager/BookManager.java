@@ -41,7 +41,7 @@ public class BookManager
             switch(choice)
             {
                 case 1: 
-                    PyschologyBook pb = new PyschologyBook();
+                    PsychologyBook pb = new PsychologyBook();
                     pb.add();
                     listOfBook.add(pb);
                     break;
