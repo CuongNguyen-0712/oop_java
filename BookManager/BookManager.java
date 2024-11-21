@@ -1,34 +1,26 @@
 package BookManager;
+
+import IBook.IBookStore;
 import inputValue.inputScanner;
 import java.util.Vector;
-import IBook.IBookStore;
 
-public class BookManager implements IBookStore
+public class BookManager 
 {
     private Vector<Book> listOfBook = new Vector<>();
     public static int count = 0;
 
-    public BookManager()
-    {
-        listOfBook = new Vector<>();  
+    public BookManager() {
+        listOfBook = new Vector<>();
     }
 
-    public BookManager(Vector<Book> listOfBook)
-    {
+    public BookManager(Vector<Book> listOfBook) {
         this.listOfBook = listOfBook;
     }
 
-    public Vector<Book> getListOfBook() 
-    {
+    public Vector<Book> getListOfBook() {
         return listOfBook;
     }
 
-    public String getId()
-    {
-        return "Book" + (count++);
-    }
-
-    @Override
     public void add()
     {
         do
@@ -36,6 +28,7 @@ public class BookManager implements IBookStore
             System.out.println("Chon loai sach ban muon them: 1. Sach Tam Ly Hoc  2. Manga   3. Sach Van Hoc");
             int choice = inputScanner.input.nextInt();
             inputScanner.input.nextLine();
+
             switch(choice)
             {
                 case 1: 
@@ -44,11 +37,11 @@ public class BookManager implements IBookStore
                     listOfBook.add(pb);
                     break;
                 case 2: 
-                    Manga mg = new MangaBook();
+                    Manga mg = new Manga();
                     mg.add();
                     listOfBook.add(mg);
                     break;
-                case 3: 
+                case 3:
                     LiteratureBook lb = new LiteratureBook();
                     lb.add();
                     listOfBook.add(lb);
@@ -56,58 +49,56 @@ public class BookManager implements IBookStore
                 default:
                     System.out.println("Lua chon khong hop le !!!\n");
             }
+
         }while(choice < 1 || choice > 3);
     }
 
     public void delete()
     {
-        inputScanner.input.nextLine();
+        inputScanner.input.nextLine()
         System.out.println("Nhap ma sach muon xoa: ");
         String id = inputScanner.input.nextLine();
 
         boolean flag = false;
 
-        for(int i = 0; i < listOfBook.size() ;i++)
+        for(int i = 0;i < listOfBook.size();i++)
         {
             if(listOfBook.get(i).getID().equalsIgnoreCase(id))
             {
                 if(listOfBook.get(i) instanceof PsychologyBook)
                 {
-                    PsychologyBook.deCountBook();
+                    ((PsychologyBook) listOfBook.get(i)).deCountBook();
                 }
-                else if(listOfBook.get(i) instanceof MangaBook)
+                else if(listOfBook.get(i) instanceof Manga)
                 {
-                    MangaBook.deCountBook();
+                    ((Manga) listOfBook.get(i)).deCountBook();
                 }
                 else
                 {
-                    LiteratureBook.deCountBook();
+                    ((LiteratureBook) listOfBook.get(i)).deCountBook();
                 }
                 listOfBook.remove(i);
                 flag = true;
             }
         }
 
-        if(flag==false)
-        {
+        if (flag == false) {
             System.out.println("Khong tim thay sach!!!\n");
         }
     }
 
-    public void change()
-    {   
+    public void change() {
         boolean flag = true;
         inputScanner.input.nextLine();
         System.out.println("Nhap ma sach muon sua: ");
-        String id =  inputScanner.input.nextLine();
+        String id = inputScanner.input.nextLine();
 
-        for(int i = 0 ;i < listOfBook.size();i++)
+        for(int i = 0;i < listOfBook.size();i++)
         {
             if(listOfBook.get(i).getID().equalsIgnoreCase(id))
             {
                 flag = true;
-                do
-                {
+                do {
                     System.out.println("Chon thong tin muon sua: ");
                     System.out.println("1. Ten sach");
                     System.out.println("2. Ten tac gia");
@@ -116,11 +107,11 @@ public class BookManager implements IBookStore
                     System.out.println("5. So luong");
                     System.out.println("6. Best Seller");
                     System.out.println("7. Thong tin rieng cua sach");
-                    int choice =  inputScanner.input.nextInt();
-                    inputScanner.input.nextLine();
+                    System.out.println("8. Thoat");
+                    int choice =   inputScanner.input.nextInt();
+                    inputScanner.input.nextLine()
 
-                    switch(choice)
-                    {
+                    switch (choice) {
                         case 1:
                             System.out.println("Nhap ten sach: ");
                             String name = inputScanner.input.nextLine();
@@ -146,23 +137,22 @@ public class BookManager implements IBookStore
                             int quantity = inputScanner.input.nextInt();
                             listOfBook.get(i).setQuantity(quantity);
                             break;
-                        case 6: 
+                        case 6:
                             System.out.println("Ban co muon giu vi tri Best Seller cua cuon sach nay khong? (y/n)");
-                            String bestSeller =  inputScanner.input.nextLine();
+                            String bestSeller = inputScanner.input.nextLine();
                             listOfBook.get(i).setIsBestSeller(bestSeller.equalsIgnoreCase("y"));
                             break;
                         case 7:
-                            if(listOfBook.get(i) instanceof PsychologyBook)
-                            {
+                            if (listOfBook.get(i) instanceof PsychologyBook) {
                                 System.out.println("Nhap doi tuong doc gia: ");
                                 String audience = inputScanner.input.nextLine();
                                 ((PsychologyBook) listOfBook.get(i)).setAudience(audience);
                             }
-                            else if(listOfBook.get(i) instanceof MangaBook)
+                            else if(listOfBook.get(i) instanceof Manga)
                             {
                                 System.out.println("Nhap so tap: ");
-                                int volume = inputScanner.input.nextInt();
-                                ((MangaBook) listOfBook.get(i)).setVolume(volume);
+                                int volume  inputScanner.input.nextInt();
+                                ((Manga) listOfBook.get(i)).setVolume(volume);
                             }
                             else
                             {
@@ -171,32 +161,31 @@ public class BookManager implements IBookStore
                                 ((LiteratureBook) listOfBook.get(i)).setNation(nation);
                             }
                             break;
-                        default: 
+                        case 8:
+                            break;
+                        default:
                             System.out.println("Lua chon khong hop le!!!\n");
-                    } 
+                    }
 
-                }while(choice < 1 || choice > 7);   //không quay lại nhập được nhưng tui không nhìn ra sai ở đâu
+                }while(choice !=8);
                 break;
-            }
-            else
-            {
+            } else {
                 flag = false;
             }
         }
-        if(flag == false)
-        {
+        if (flag == false) {
             System.out.println("Ma sach khong hop le!!!\n");
         }
     }
     
     public void search()
     {
-        inputScanner.input.nextLine();  
+        inputScanner.input.nextLine()
         boolean flag = false;
         System.out.println("Nhap ma sach muon tim: ");
         String id = inputScanner.input.nextLine();
 
-        for(int i = 0; i < listOfBook.size();i++)
+        for(int i = 0;i < listOfBook.size();i++)
         {
             if(listOfBook.get(i).getID().equalsIgnoreCase(id))
             {
@@ -207,21 +196,18 @@ public class BookManager implements IBookStore
             }
         }
 
-        if(flag==false)
-        {
+        if (flag == false) {
             System.out.println("Khong tim thay sach!!!\n");
         }
     }
 
-    public int totalBook()
-    {
+    public int totalBook() {
         return listOfBook.size();
     }
-    
-    public void countBookByCategory()
-    {
+
+    public void countBookByCategory() {
         System.out.println("So luong sach Tam Li Hoc: " + PsychologyBook.countBook());
-        System.out.println("So luong Manga: " + Manga.countBook());
+        System.out.println("So luong MangaBook: " + MangaBook.countBook());
         System.out.println("So luong sach Van Hoc: " + LiteratureBook.countBook());
     }
 }
