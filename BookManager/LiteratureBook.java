@@ -1,37 +1,49 @@
 package BookManager;
 
-import feature.inputScanner;
+import feature.*;
 
-class LiteratureBook extends Book{
-    public static int countBook = 0;
+class LiteratureBook extends Book {
+    private String nation;
+    private static int count = 0;
 
-    String special;
+    public LiteratureBook() {
+        nation = "";
+        count++;
+    }
 
-    public LiteratureBook(){}
+    public LiteratureBook(String id, String name, String author, String publisher, int cost, int quantity, String nation) {
+        super(id, name, author, publisher, cost, quantity);
+        this.nation = nation;
+        count++;
+    }
 
-    public LiteratureBook(String name, String id, String special) {
-        super(name, id);
-        this.special = special;
+    public static int countBook() {
+        return count;
+    }
+
+    public static void deCountBook() {
+        count--;
     }
 
     @Override
     public void add() {
         super.add();
-        System.out.print("Nhap chuc nang: ");
-        special = inputScanner.input.nextLine();
+        System.out.println("Tac pham thuoc ve quoc gia: ");
+        nation = inputScanner.input.nextLine();
+    }
+
+    // @Override public void display()
+
+    public String getNation() {
+        return nation;
+    }
+
+    public void setNation(String newNation) {
+        nation = newNation;
     }
 
     @Override
     public void display() {
-        super.display();
-        System.out.println("Chuc nang: " + special);
-    }
-
-    public static void increaseCountBook(int mount) {
-        countBook += mount;
-    }
-
-    public static void decreaseCountBook(int mount) {
-        countBook -= mount;
+        formatString.toStringCartory(this.getID(), this.getName(), this.getAuthor(), this.getPublisher(), this.getCost(), this.getQuantity(), this.getNation(), "Quốc gia");
     }
 }

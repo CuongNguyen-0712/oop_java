@@ -1,38 +1,58 @@
 package BookManager;
 
-import feature.inputScanner;
+import feature.*;
 
-class MangaBook extends Book{
-    public static int countBook;
-    String another;
+class MangaBook extends Book
+{
+    private int volume;
+    private static int count = 0;
 
-    public MangaBook(){
-
+    public MangaBook()
+    {
+        volume = 0;
+        count++;
     }
 
-    public MangaBook(String name, String id, String another) {
-        super(name, id);
-        this.another = another;
+    public MangaBook(String id, String name, String author, String publisher, int cost, int quantity, int volume)
+    {
+        super(id, name, author, publisher, cost, quantity);
+        this.volume = volume;
+        count++;
     }
 
-    @Override
-    public void add(){
+    public static int countBook()
+    {
+        return count;
+    }
+
+    public static void deCountBook()
+    {
+        count--;
+    }
+
+    @Override 
+    public void add()
+    {
         super.add();
-        System.out.print("Nhap nha xuat ban: ");
-        another = inputScanner.input.nextLine();
+        System.out.println("Nhap so tap: ");
+        volume = inputScanner.input.nextInt();
+        inputScanner.input.nextLine();
+    }
+
+    // @Override public void display()
+
+    public int getVolume()
+    {
+        return volume;
+    }
+
+    public void setVolume(int newVolume)
+    {
+        volume = newVolume;
     }
 
     @Override
-    public void display(){
-        super.display();
-        System.out.println("Nha xuat ban: " + another);
-    }
-
-    public static void increaseCountBook(int mount) {
-        countBook += mount;
-    }
-
-    public static void decreaseCountBook(int mount) {
-        countBook -= mount;
+    public void display() {
+        formatString.toStringCartory(this.getID(), this.getName(), this.getAuthor(), this.getPublisher(), this.getCost(), this.getQuantity(), String.valueOf(getVolume()), "Số tập");
     }
 }

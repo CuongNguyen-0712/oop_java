@@ -1,34 +1,57 @@
 package BookManager;
 
-import feature.inputScanner;
+import feature.*;
 
-class PsychologyBook extends Book{
-    public static int countBook;
-    String newUpdate;
+class PsychologyBook extends Book
+{
+    private String audience;
+    private static int count = 0;  //gán tạm bằng 0 nha
 
-    public PsychologyBook() {}
-
-    public PsychologyBook(String name, String id, String newUpdate) {
-        super(name, id);
-        this.newUpdate = newUpdate;
+    public PsychologyBook()
+    {
+        audience = "";
+        count++;
     }
 
-    public void add() {
+    public PsychologyBook(String id, String name, String author, String publisher, int cost, int quantity, String audience)
+    {
+        super(id, name, author, publisher, cost, quantity);
+        this.audience = audience;
+        count++;
+    }
+
+    public static int countBook()
+    {
+        return count;
+    }
+
+    public static void deCountBook()
+    {
+        count--;
+    }
+
+    @Override
+    public void add()
+    {
         super.add();
-        System.out.print("Nhap chuc nang moi: ");
-        newUpdate = inputScanner.input.nextLine();
+        System.out.println("Nhap doi tuong doc gia:");
+        audience = inputScanner.input.nextLine();
     }
 
+    // @Override public void display()
+
+    public String getAudience()
+    {
+        return audience;
+    }
+
+    public void setAudience(String newAudience)
+    {
+        audience = newAudience;
+    }
+
+    @Override
     public void display() {
-        super.display();
-        System.out.println("Chuc nang moi: " + newUpdate);
-    }
-
-    public static void increaseCountBook(int mount) {
-        countBook += mount;
-    }
-
-    public static void decreaseCountBook(int mount) {
-        countBook -= mount;
+        formatString.toStringCartory(this.getID(), this.getName(), this.getAuthor(), this.getPublisher(), this.getCost(), this.getQuantity(), this.getAudience(), "Đối tượng");
     }
 }
