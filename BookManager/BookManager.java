@@ -13,12 +13,19 @@ public class BookManager
         listOfBook = new Vector<>();
     }
 
-    public BookManager(Vector<Book> listOfBook) {
+    public BookManager(Vector<Book> listOfBook)
+    {
         this.listOfBook = listOfBook;
     }
 
-    public Vector<Book> getListOfBook() {
+    public Vector<Book> getListOfBook() 
+    {
         return listOfBook;
+    }
+
+    public static String getId()
+    {
+        return "Book" + (count++);
     }
 
     public void add()
@@ -55,7 +62,7 @@ public class BookManager
 
     public void delete()
     {
-        inputScanner.input.nextLine()
+        inputScanner.input.nextLine();
         System.out.println("Nhap ma sach muon xoa: ");
         String id = inputScanner.input.nextLine();
 
@@ -67,15 +74,15 @@ public class BookManager
             {
                 if(listOfBook.get(i) instanceof PsychologyBook)
                 {
-                    ((PsychologyBook) listOfBook.get(i)).deCountBook();
+                    PsychologyBook.deCountBook();
                 }
-                else if(listOfBook.get(i) instanceof Manga)
+                else if(listOfBook.get(i) instanceof MangaBook)
                 {
-                    ((Manga) listOfBook.get(i)).deCountBook();
+                    MangaBook.deCountBook();
                 }
                 else
                 {
-                    ((LiteratureBook) listOfBook.get(i)).deCountBook();
+                    LiteratureBook.deCountBook();
                 }
                 listOfBook.remove(i);
                 flag = true;
@@ -108,8 +115,8 @@ public class BookManager
                     System.out.println("6. Best Seller");
                     System.out.println("7. Thong tin rieng cua sach");
                     System.out.println("8. Thoat");
-                    int choice =   inputScanner.input.nextInt();
-                    inputScanner.input.nextLine()
+                    int choice =  inputScanner.input.nextInt();
+                    inputScanner.input.nextLine();
 
                     switch (choice) {
                         case 1:
@@ -180,7 +187,7 @@ public class BookManager
     
     public void search()
     {
-        inputScanner.input.nextLine()
+        inputScanner.input.nextLine();
         boolean flag = false;
         System.out.println("Nhap ma sach muon tim: ");
         String id = inputScanner.input.nextLine();
