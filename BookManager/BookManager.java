@@ -46,7 +46,7 @@ public class BookManager
                     listOfBook.add(pb);
                     break;
                 case 2: 
-                    Manga mg = new MangaBook();
+                    MangaBook mg = new MangaBook();
                     mg.add();
                     listOfBook.add(mg);
                     break;
