@@ -9,7 +9,8 @@ public class BookManager
     private Vector<Book> listOfBook = new Vector<>();
     public static int count = 0;
 
-    public BookManager() {
+    public BookManager() 
+    {
         listOfBook = new Vector<>();
     }
 
@@ -30,10 +31,11 @@ public class BookManager
 
     public void add()
     {
+        int choice;
         do
         {
             System.out.println("Chon loai sach ban muon them: 1. Sach Tam Ly Hoc  2. Manga   3. Sach Van Hoc");
-            int choice = inputScanner.input.nextInt();
+            choice = inputScanner.input.nextInt();
             inputScanner.input.nextLine();
 
             switch(choice)
@@ -44,7 +46,7 @@ public class BookManager
                     listOfBook.add(pb);
                     break;
                 case 2: 
-                    Manga mg = new Manga();
+                    Manga mg = new MangaBook();
                     mg.add();
                     listOfBook.add(mg);
                     break;
@@ -89,13 +91,16 @@ public class BookManager
             }
         }
 
-        if (flag == false) {
+        if (flag == false) 
+        {
             System.out.println("Khong tim thay sach!!!\n");
         }
     }
 
-    public void change() {
+    public void change()
+    {
         boolean flag = true;
+        int choice;
         inputScanner.input.nextLine();
         System.out.println("Nhap ma sach muon sua: ");
         String id = inputScanner.input.nextLine();
@@ -115,7 +120,7 @@ public class BookManager
                     System.out.println("6. Best Seller");
                     System.out.println("7. Thong tin rieng cua sach");
                     System.out.println("8. Thoat");
-                    int choice =  inputScanner.input.nextInt();
+                    choice = inputScanner.input.nextInt();
                     inputScanner.input.nextLine();
 
                     switch (choice) {
@@ -155,11 +160,11 @@ public class BookManager
                                 String audience = inputScanner.input.nextLine();
                                 ((PsychologyBook) listOfBook.get(i)).setAudience(audience);
                             }
-                            else if(listOfBook.get(i) instanceof Manga)
+                            else if(listOfBook.get(i) instanceof MangaBook)
                             {
                                 System.out.println("Nhap so tap: ");
-                                int volume  inputScanner.input.nextInt();
-                                ((Manga) listOfBook.get(i)).setVolume(volume);
+                                int volume = inputScanner.input.nextInt();
+                                ((MangaBook) listOfBook.get(i)).setVolume(volume);
                             }
                             else
                             {
@@ -174,7 +179,7 @@ public class BookManager
                             System.out.println("Lua chon khong hop le!!!\n");
                     }
 
-                }while(choice !=8);
+                }while(choice != 8 );
                 break;
             } else {
                 flag = false;
