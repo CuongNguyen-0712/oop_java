@@ -1,7 +1,7 @@
 package BookManager;
 
 import IBook.IBookStore;
-import inputValue.inputScanner;
+import feature.inputScanner;
 
 public class Book implements IBookStore 
 {
@@ -12,7 +12,7 @@ public class Book implements IBookStore
 
     public Book()
     {
-        id = BookManager.getId();
+        id = "";
         name = "";
         author = "";
         publisher = "";
@@ -36,30 +36,24 @@ public class Book implements IBookStore
         System.out.print("Nhap ten sach: ");
         name = inputScanner.input.nextLine();
 
-        System.out.println("Nhap ten tac gia: ");
+        System.out.print("Nhap ten tac gia: ");
         author = inputScanner.input.nextLine();
 
-        System.out.println("Nhap nha xuat ban: ");
+        System.out.print("Nhap nha xuat ban: ");
         publisher = inputScanner.input.nextLine();
 
-        System.out.println("Nhap gia: ");
+        System.out.print("Nhap gia: ");
         cost = inputScanner.input.nextInt();
+        inputScanner.input.nextLine();
 
-        System.out.println("Nhap so luong: ");
+        System.out.print("Nhap so luong: ");
         quantity = inputScanner.input.nextInt();
-
         inputScanner.input.nextLine();
 
         System.out.println("Sach nay co phai bestseller khong? (y/n)");
         bestSeller = inputScanner.input.nextLine();
 
         isBestSeller = bestSeller.equalsIgnoreCase("y");
-    }
-
-    @Override
-    public void display() 
-    {
-
     }
 
     public String getID() {
@@ -108,5 +102,9 @@ public class Book implements IBookStore
 
     public void setIsBestSeller(boolean newIsBestSeller) {
         isBestSeller = newIsBestSeller;
+    }
+
+    @Override
+    public void display(){
     }
 }

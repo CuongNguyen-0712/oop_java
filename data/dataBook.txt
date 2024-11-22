@@ -1,2 +1,27 @@
-Cuongcoder
-fullstacks
+1
+P01
+Thao tung tam li
+Shannon Thomas
+Tre
+180
+30
+adult
+
+2
+M01
+One Piece
+Oda Eiichiro
+Shueisha
+200
+12
+30
+
+3
+L01
+Ngay xua co mot chuyen tinh
+Nguyen Nhat Anh
+Tre
+100
+20
+Viet Nam
+

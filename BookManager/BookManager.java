@@ -37,6 +37,7 @@ public class BookManager
             System.out.println("Chon loai sach ban muon them: 1. Sach Tam Ly Hoc  2. Manga   3. Sach Van Hoc");
             choice = inputScanner.input.nextInt();
             inputScanner.input.nextLine();
+            inputScanner.input.nextLine();
 
             switch(choice)
             {
@@ -51,6 +52,7 @@ public class BookManager
                     listOfBook.add(mg);
                     break;
                 case 3:
+                case 3:
                     LiteratureBook lb = new LiteratureBook();
                     lb.add();
                     listOfBook.add(lb);
@@ -59,7 +61,7 @@ public class BookManager
                     System.out.println("Lua chon khong hop le !!!\n");
             }
 
-        }while(choice < 1 || choice > 3);
+        } while (choice < 1 || choice > 3);
     }
 
     public void delete()
@@ -88,6 +90,8 @@ public class BookManager
                 }
                 listOfBook.remove(i);
                 flag = true;
+                System.out.println("Đã xóa thành công!!!\n");
+                break;
             }
         }
 
@@ -95,6 +99,8 @@ public class BookManager
         {
             System.out.println("Khong tim thay sach!!!\n");
         }
+
+        BookManager.manage();
     }
 
     public void change()
@@ -105,10 +111,9 @@ public class BookManager
         System.out.println("Nhap ma sach muon sua: ");
         String id = inputScanner.input.nextLine();
 
-        for(int i = 0;i < listOfBook.size();i++)
-        {
-            if(listOfBook.get(i).getID().equalsIgnoreCase(id))
-            {
+        for (int i = 0; i < listOfBook.size(); i++) {
+            if (listOfBook.get(i).getID().equalsIgnoreCase(id)) {
+                modifyData(i);
                 flag = true;
                 do {
                     System.out.println("Chon thong tin muon sua: ");
@@ -194,15 +199,23 @@ public class BookManager
     {
         inputScanner.input.nextLine();
         boolean flag = false;
-        System.out.println("Nhap ma sach muon tim: ");
-        String id = inputScanner.input.nextLine();
+        System.out.print("Nhap ma sach muon tim: ");
+        String searchValue = inputScanner.input.nextLine();
 
-        for(int i = 0;i < listOfBook.size();i++)
-        {
-            if(listOfBook.get(i).getID().equalsIgnoreCase(id))
-            {
+        for (int i = 0; i < listOfBook.size(); i++) {
+            if (listOfBook.get(i).getID().equalsIgnoreCase(searchValue)) {
+                System.out.println("\n");
                 System.out.println("----THONG TIN SACH CAN TIM---\n");
-                listOfBook.get(i).display();
+                if(listOfBook.get(i) instanceof PsychologyBook){
+                    listOfBook.get(i).display();
+                }
+                else if(listOfBook.get(i) instanceof LiteratureBook){
+                    listOfBook.get(i).display();
+                }
+                else{
+                    listOfBook.get(i).display();
+                }
+                System.out.println("\n");
                 flag = true;
                 break;
             }

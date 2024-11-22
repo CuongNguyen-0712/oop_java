@@ -1,5 +1,6 @@
 package BookManager;
-import inputValue.inputScanner;
+
+import feature.*;
 
 class PsychologyBook extends Book
 {
@@ -16,6 +17,7 @@ class PsychologyBook extends Book
     {
         super(id, name, author, publisher, cost, quantity);
         this.audience = audience;
+        count++;
     }
 
     public static int countBook()
@@ -49,5 +51,10 @@ class PsychologyBook extends Book
     public void setAudience(String newAudience)
     {
         audience = newAudience;
+    }
+
+    @Override
+    public void display() {
+        formatString.toStringCartory(this.getID(), this.getName(), this.getAuthor(), this.getPublisher(), this.getCost(), this.getQuantity(), this.getAudience(), "Đối tượng");
     }
 }
