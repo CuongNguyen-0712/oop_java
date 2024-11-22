@@ -1,7 +1,7 @@
 package BookManager;
 
 import IBook.IBookStore;
-import inputValue.inputScanner;
+import feature.inputScanner;
 import java.util.Vector;
 
 public class BookManager 
@@ -51,7 +51,6 @@ public class BookManager
                     mg.add();
                     listOfBook.add(mg);
                     break;
-                case 3:
                 case 3:
                     LiteratureBook lb = new LiteratureBook();
                     lb.add();
@@ -113,7 +112,6 @@ public class BookManager
 
         for (int i = 0; i < listOfBook.size(); i++) {
             if (listOfBook.get(i).getID().equalsIgnoreCase(id)) {
-                modifyData(i);
                 flag = true;
                 do {
                     System.out.println("Chon thong tin muon sua: ");
