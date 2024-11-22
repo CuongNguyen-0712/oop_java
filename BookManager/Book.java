@@ -1,7 +1,7 @@
 package BookManager;
 
-import inputValue.inputScanner;
 import IBook.IBookStore;
+import inputValue.inputScanner;
 
 public class Book implements IBookStore 
 {
@@ -30,6 +30,7 @@ public class Book implements IBookStore
         this.quantity = quantity;
     }
 
+    @Override
     public void add() 
     {
         System.out.print("Nhap ten sach: ");
