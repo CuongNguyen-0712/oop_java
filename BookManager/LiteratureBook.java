@@ -28,7 +28,7 @@ class LiteratureBook extends Book {
     @Override
     public void add() {
         super.add();
-        System.out.println("Tac pham thuoc ve quoc gia: ");
+        System.out.print("Tac pham thuoc ve quoc gia: ");
         nation = inputScanner.input.nextLine();
     }
 
@@ -44,6 +44,6 @@ class LiteratureBook extends Book {
 
     @Override
     public void display() {
-        formatString.toStringCartory(this.getID(), this.getName(), this.getAuthor(), this.getPublisher(), this.getCost(), this.getQuantity(), this.getNation(), "Quốc gia");
+        formatString.toStringCartory(this.getID(), this.getName(), this.getAuthor(), this.getPublisher(), this.getCost(), this.getQuantity(), this.getNation(), "Quốc gia", this.getIsBestSeller() ? "Có" : "Khồng");
     }
 }

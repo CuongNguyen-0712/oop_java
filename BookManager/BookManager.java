@@ -101,25 +101,24 @@ public class BookManager {
             choice = inputScanner.input.nextInt();
             inputScanner.input.nextLine();
 
+            Book newBook = null;
+
             switch (choice) {
                 case 1:
-                    PsychologyBook pb = new PsychologyBook();
-                    pb.add();
-                    listOfBook.add(pb);
+                    newBook = new PsychologyBook();
                     break;
                 case 2:
-                    MangaBook mg = new MangaBook();
-                    mg.add();
-                    listOfBook.add(mg);
+                    newBook = new MangaBook();
                     break;
                 case 3:
-                    LiteratureBook lb = new LiteratureBook();
-                    lb.add();
-                    listOfBook.add(lb);
+                    newBook = new LiteratureBook();
                     break;
                 default:
                     System.out.println("Lua chon khong hop le !!!\n");
             }
+
+            newBook.add();
+            listOfBook.add(newBook);
 
         } while (choice < 1 || choice > 3);
     }
@@ -149,8 +148,6 @@ public class BookManager {
         if (!flag) {
             System.out.println("Khong tim thay sach!!!\n");
         }
-
-        BookManager.manage();
     }
 
     public static void modifyBook() {
@@ -213,7 +210,7 @@ public class BookManager {
                         listOfBook.get(i).setQuantity(quantity);
                         break;
                     case 6:
-                        System.out.println("Ban co muon giu vi tri Best Seller cua cuon sach nay khong? (y/n)");
+                        System.out.println("Ban co muon giu vi tri Best Seller cua cuon sach nay khong (y/n) ?: ");
                         String bestSeller = inputScanner.input.nextLine();
                         listOfBook.get(i).setIsBestSeller(bestSeller.equalsIgnoreCase("y"));
                         break;

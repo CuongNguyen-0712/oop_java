@@ -34,7 +34,7 @@ class PsychologyBook extends Book
     public void add()
     {
         super.add();
-        System.out.println("Nhap doi tuong doc gia:");
+        System.out.print("Nhap doi tuong doc gia:");
         audience = inputScanner.input.nextLine();
     }
 
@@ -52,6 +52,6 @@ class PsychologyBook extends Book
 
     @Override
     public void display() {
-        formatString.toStringCartory(this.getID(), this.getName(), this.getAuthor(), this.getPublisher(), this.getCost(), this.getQuantity(), this.getAudience(), "Đối tượng");
+        formatString.toStringCartory(this.getID(), this.getName(), this.getAuthor(), this.getPublisher(), this.getCost(), this.getQuantity(), this.getAudience(), "Đối tượng", this.getIsBestSeller() ? "Có" : "Không");
     }
 }

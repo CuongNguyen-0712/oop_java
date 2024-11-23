@@ -34,7 +34,7 @@ class MangaBook extends Book
     public void add()
     {
         super.add();
-        System.out.println("Nhap so tap: ");
+        System.out.print("Nhap so tap: ");
         volume = inputScanner.input.nextInt();
         inputScanner.input.nextLine();
     }
@@ -53,6 +53,6 @@ class MangaBook extends Book
 
     @Override
     public void display() {
-        formatString.toStringCartory(this.getID(), this.getName(), this.getAuthor(), this.getPublisher(), this.getCost(), this.getQuantity(), String.valueOf(getVolume()), "Số tập");
+        formatString.toStringCartory(this.getID(), this.getName(), this.getAuthor(), this.getPublisher(), this.getCost(), this.getQuantity(), String.valueOf(getVolume()), "Số tập", this.getIsBestSeller() ? "Có": "Không");
     }
 }
