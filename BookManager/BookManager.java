@@ -92,7 +92,7 @@ public class BookManager {
             e.printStackTrace();
         }
     }
-
+    
     public static void addBook() {
         int choice;
 
@@ -123,6 +123,7 @@ public class BookManager {
 
         } while (choice < 1 || choice > 3);
     }
+
 
     public static void deleteBook() {
         System.out.print("Nhap ma sach muon xoa: ");
@@ -165,10 +166,12 @@ public class BookManager {
                 break;
             }
         }
+      
         if (!flag) {
             System.out.println("Ma sach khong hop le!!!\n");
         }
     }
+
 
     public static void modifyData(int i) {
         while (true) {
@@ -328,5 +331,4 @@ public class BookManager {
             }
         }
     }
-
 }
