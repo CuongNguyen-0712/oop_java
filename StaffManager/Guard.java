@@ -1,8 +1,9 @@
 package StaffManager;
 
-import inputValue.inputScanner;
+import feature.inputScanner;
 
 class Guard extends Staff {
+
     private String martialArt;
 
     public Guard() {
@@ -38,6 +39,9 @@ class Guard extends Staff {
                 || !martialArt.equalsIgnoreCase("Aikido")
                 || !martialArt.equalsIgnoreCase("MMA")
                 || !martialArt.equalsIgnoreCase("Kyoukshin Karate"));
+    @Override
+    public void add() {
+
     }
 
     @Override
@@ -81,4 +85,5 @@ class Guard extends Staff {
     public void showUnique(){
         System.out.println("Vo thuat cu la : "+martialArt);
     }
+
 }

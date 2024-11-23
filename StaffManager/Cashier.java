@@ -1,5 +1,5 @@
 package StaffManager;
-import inputValue.inputScanner;
+import feature.inputScanner;
 
 class Cashier extends Staff{
     private int countBill;
@@ -26,7 +26,6 @@ class Cashier extends Staff{
 
     @Override
     public void display() {
-
     }
 
     @Override

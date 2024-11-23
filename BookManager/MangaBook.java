@@ -1,5 +1,6 @@
 package BookManager;
-import inputValue.inputScanner;
+
+import feature.*;
 
 class MangaBook extends Book
 {
@@ -16,6 +17,7 @@ class MangaBook extends Book
     {
         super(id, name, author, publisher, cost, quantity);
         this.volume = volume;
+        count++;
     }
 
     public static int countBook()
@@ -34,6 +36,7 @@ class MangaBook extends Book
         super.add();
         System.out.println("Nhap so tap: ");
         volume = inputScanner.input.nextInt();
+        inputScanner.input.nextLine();
     }
 
     // @Override public void display()
@@ -46,5 +49,10 @@ class MangaBook extends Book
     public void setVolume(int newVolume)
     {
         volume = newVolume;
+    }
+
+    @Override
+    public void display() {
+        formatString.toStringCartory(this.getID(), this.getName(), this.getAuthor(), this.getPublisher(), this.getCost(), this.getQuantity(), String.valueOf(getVolume()), "Số tập");
     }
 }

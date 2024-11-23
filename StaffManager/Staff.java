@@ -1,6 +1,7 @@
-package StaffManager;
+package StaffManager; 
+
 import IBook.IBookStore;
-import inputValue.inputScanner;
+import feature.inputScanner;
 
 abstract class Staff implements IBookStore {
     private String id;

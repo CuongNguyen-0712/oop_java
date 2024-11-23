@@ -1,6 +1,6 @@
 package StaffManager;
 
-import inputValue.inputScanner;
+import feature.inputScanner;
 
 class Librarian extends Staff {
     private int specialization;

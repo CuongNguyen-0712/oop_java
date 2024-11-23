@@ -1,7 +1,8 @@
 package StaffManager;
+import IBook.IBookStore;
 
 import IBook.IBookStore;
-import inputValue.inputScanner;
+import feature.inputScanner;
 import java.util.Vector;
 
 public class StaffManager implements IBookStore {
@@ -183,3 +184,4 @@ public class StaffManager implements IBookStore {
         return "Staff" + member++;
     }
 }
+
