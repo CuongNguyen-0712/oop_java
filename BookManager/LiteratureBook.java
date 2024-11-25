@@ -2,7 +2,7 @@ package BookManager;
 
 import feature.*;
 
-class LiteratureBook extends Book {
+public class LiteratureBook extends Book {
     private String nation;
     private static int count = 0;
 
@@ -28,6 +28,7 @@ class LiteratureBook extends Book {
     @Override
     public void add() {
         super.add();
+
         System.out.print("Tac pham thuoc ve quoc gia: ");
         nation = inputScanner.input.nextLine();
     }

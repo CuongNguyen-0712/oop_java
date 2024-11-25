@@ -2,7 +2,7 @@ package BookManager;
 
 import feature.*;
 
-class PsychologyBook extends Book
+public class PsychologyBook extends Book
 {
     private String audience;
     private static int count = 0;  //gán tạm bằng 0 nha

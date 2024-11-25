@@ -1,6 +1,5 @@
 package BookManager;
 
-
 import IBook.IBookStore;
 import feature.inputScanner;
 
@@ -33,9 +32,6 @@ public class Book implements IBookStore
 
     public void add()
     {
-        System.out.print("Nhap ma sach: "); 
-        id = inputScanner.input.nextLine();
-
         System.out.print("Nhap ten sach: ");
         name = inputScanner.input.nextLine();
 
@@ -53,9 +49,9 @@ public class Book implements IBookStore
         quantity = inputScanner.input.nextInt();
         inputScanner.input.nextLine();
 
-        System.out.print("Sach nay co phai bestseller khong? (y/n)");
+        System.out.println("Sach nay co phai bestseller khong? (y/n)");
         bestSeller = inputScanner.input.nextLine();
-        
+
         isBestSeller = bestSeller.equalsIgnoreCase("y");
     }
 
@@ -89,7 +85,9 @@ public class Book implements IBookStore
         return quantity;
     }
 
-    public boolean getIsBestSeller(){ return isBestSeller; }
+    public boolean getIsBestSeller(){
+        return isBestSeller;
+    }
 
     public void setName(String newName)
     {

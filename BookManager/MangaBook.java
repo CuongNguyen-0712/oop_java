@@ -2,7 +2,7 @@ package BookManager;
 
 import feature.*;
 
-class MangaBook extends Book
+public class MangaBook extends Book
 {
     private int volume;
     private static int count = 0;

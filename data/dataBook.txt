@@ -1,5 +1,5 @@
 1
-P01
+P1
 Thao tung tam li
 Shannon Thomas
 Tre
@@ -8,7 +8,7 @@ Tre
 adult
 
 2
-M01
+M1
 One Piece
 Oda Eiichiro
 Shueisha
@@ -17,7 +17,7 @@ Shueisha
 30
 
 3
-L01
+L1
 Ngay xua co mot chuyen tinh
 Nguyen Nhat Anh
 Tre
