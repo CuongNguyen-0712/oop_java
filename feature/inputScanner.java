@@ -1,4 +1,4 @@
-package inputValue;
+package feature;
 
 import java.util.Scanner;
 
