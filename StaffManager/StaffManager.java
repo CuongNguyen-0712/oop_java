@@ -8,7 +8,7 @@ import feature.inputScanner;
 import java.util.Vector;
 
 public class StaffManager implements IBookStore {
-    private Vector<Staff> listOfStaff;
+    private static Vector<Staff> listOfStaff;
     private static int member = 0;
 
     @Override
@@ -178,7 +178,7 @@ public class StaffManager implements IBookStore {
         }
     }
 
-    public Vector<Staff> getList() {
+    public static Vector<Staff> getList() {
         return listOfStaff;
     }
 

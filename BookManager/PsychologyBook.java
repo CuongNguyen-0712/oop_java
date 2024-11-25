@@ -34,6 +34,7 @@ public class PsychologyBook extends Book
     public void add()
     {
         super.add();
+        this.setID("P" + (int) (Math.random() * 1000));
         System.out.print("Nhap doi tuong doc gia:");
         audience = inputScanner.input.nextLine();
     }

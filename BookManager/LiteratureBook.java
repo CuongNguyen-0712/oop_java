@@ -28,7 +28,7 @@ public class LiteratureBook extends Book {
     @Override
     public void add() {
         super.add();
-
+        this.setID("L" + (int) (Math.random() * 1000));
         System.out.print("Tac pham thuoc ve quoc gia: ");
         nation = inputScanner.input.nextLine();
     }

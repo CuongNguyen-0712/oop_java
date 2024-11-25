@@ -44,7 +44,6 @@ public class StoreManager {
                         break;
                     case 4:
                         StoreManager.saveFile();
-                        System.out.println("Lưu thanh cong! \n");
                         break;
                     case 5:
                         System.out.println("Lưu thành công. Kết thúc chương trình!");

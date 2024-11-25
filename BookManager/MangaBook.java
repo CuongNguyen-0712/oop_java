@@ -34,6 +34,7 @@ public class MangaBook extends Book
     public void add()
     {
         super.add();
+        this.setID("M" + (int) (Math.random() * 1000));
         System.out.print("Nhap so tap: ");
         volume = inputScanner.input.nextInt();
         inputScanner.input.nextLine();

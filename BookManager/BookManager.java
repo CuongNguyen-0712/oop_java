@@ -316,7 +316,7 @@ public class BookManager {
                         BookManager.searchBook();
                         break;
                     case 5:
-                        BookManager.countBookByCategory();
+                        BookManager.displayListofBook();
                         break;
                     case 6:
                         return;
