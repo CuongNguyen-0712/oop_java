@@ -90,6 +90,9 @@ class BillManager {
     }
        
 
+    
+}
+
 class menuBillManager{
     BillManager manager = new BillManager();
         public void menu(){
