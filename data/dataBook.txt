@@ -1,27 +1,189 @@
 1
-P1
-Thao tung tam li
-Shannon Thomas
-Tre
-180
-30
-adult
+PB023
+Su im lang cua bay cuu
+Thomas Harris
+Nha Nam
+99
+32
+nguoi lon
+
+1
+PB231
+phac hoa chan dung ke pham toi
+Peter Swanson
+Vibook
+115
+20
+Chuyen gia
+
+1
+PB223
+Thien tai ben trai, ke dien ben phai
+Cao Minh
+Vibook
+200
+15
+Nguoi lon
+
+1
+PB843
+Thao tung tam ly dam dong
+Dale Carnegie
+Van hoc
+89
+44
+Nguoi lon
+
+1
+PB304
+Dinh luat Murphy
+Tu Thinh Phong
+The Gioi
+120
+39
+moi nguoi
+
+1
+PB954
+Tam ly hoc ve hoi chung Burn-out
+Ahn Jooyeun
+Van hoc
+60
+120
+moi nguoi
 
 2
-M1
-One Piece
-Oda Eiichiro
-Shueisha
-200
-12
+MG324
+Conan
+Gosho
+Kim Dong
+28
+40
+105
+
+2
+MG222
+Doraemon
+Fujiko F.Fujio
+Kim Dong
+22
 30
+45
+
+2
+MG001
+One Piece
+Eiicho Oda
+Kim Dong
+27
+100
+109
+
+2
+MG956
+Shin-cau be but chi
+Yoshito Usui
+Kim Dong
+27
+80
+50
+
+2
+MG888
+Nhoc Miko
+Ono Eriko
+Tre
+25
+35
+32
+
+2
+MG777
+Fairy Tail
+Mashima Hiro
+Hai Phong
+80
+70
+63
+
+2
+MG007
+Elden Ring
+Nikichi Tobita
+Kadokawa
+875
+25
+7
 
 3
-L1
-Ngay xua co mot chuyen tinh
-Nguyen Nhat Anh
-Tre
-100
-20
+LI084
+So do
+Vu Trong Phung
+Van Hoc
+50
+24
 Viet Nam
+
+3
+LI23
+Chi Pheo
+Nam Cao
+Van Hoc
+70
+34
+Viet Nam
+
+3
+LI999
+Truyen Kieu
+Nguyen Du
+Van Hoc
+50
+123
+Viet Nam
+
+3
+LI007
+Dark Souls 3
+Miyazaki
+Zair0u
+708
+12
+Nhat Ban
+
+3
+LI001
+Lookism
+Park Tae Jun
+PTJ
+203
+2000
+Han Quoc
+
+1
+PB589
+Cach de thau hieu trai tim
+YigeXiangShang
+ShangHai
+89
+45
+moi nguoi
+
+1
+PB999
+Suy nghi cua thien tai
+Won Syeon Ahn
+GangDong J
+98
+99
+Nguoi lon
+
+3
+LI005
+The moon
+Tek it
+American Document
+170
+32
+Mi
 

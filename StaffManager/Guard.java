@@ -21,24 +21,24 @@ class Guard extends Staff {
     @Override
     public void add() {
         super.add();
-//        do {
-//            System.out.println("Nhap vo thuat cua bao ve :");
-//            martialArt = inputScanner.input.nextLine();
-//        } while (!martialArt.equalsIgnoreCase("Muay Thai")
-//                || !martialArt.equalsIgnoreCase("Vovinam")
-//                || !martialArt.equalsIgnoreCase("Boxing")
-//                || !martialArt.equalsIgnoreCase("Karate")
-//                || !martialArt.equalsIgnoreCase("Taekwondo")
-//                || !martialArt.equalsIgnoreCase("CQC")
-//                || !martialArt.equalsIgnoreCase("Capeoira")
-//                || !martialArt.equalsIgnoreCase("Judo")
-//                || !martialArt.equalsIgnoreCase("Jinjutsu")
-//                || !martialArt.equalsIgnoreCase("Wrestling")
-//                || !martialArt.equalsIgnoreCase("Kudo")
-//                || !martialArt.equalsIgnoreCase("Systema")
-//                || !martialArt.equalsIgnoreCase("Aikido")
-//                || !martialArt.equalsIgnoreCase("MMA")
-//                || !martialArt.equalsIgnoreCase("Kyoukshin Karate"));
+       do {
+           System.out.println("Nhap vo thuat cua bao ve :");
+           martialArt = inputScanner.input.nextLine();
+       } while (!martialArt.equalsIgnoreCase("Muay Thai")
+               || !martialArt.equalsIgnoreCase("Vovinam")
+               || !martialArt.equalsIgnoreCase("Boxing")
+               || !martialArt.equalsIgnoreCase("Karate")
+               || !martialArt.equalsIgnoreCase("Taekwondo")
+               || !martialArt.equalsIgnoreCase("CQC")
+               || !martialArt.equalsIgnoreCase("Capeoira")
+               || !martialArt.equalsIgnoreCase("Judo")
+               || !martialArt.equalsIgnoreCase("Jinjutsu")
+               || !martialArt.equalsIgnoreCase("Wrestling")
+               || !martialArt.equalsIgnoreCase("Kudo")
+               || !martialArt.equalsIgnoreCase("Systema")
+               || !martialArt.equalsIgnoreCase("Aikido")
+               || !martialArt.equalsIgnoreCase("MMA")
+               || !martialArt.equalsIgnoreCase("Kyoukshin Karate"));
     }
         @Override
         public void display () {
