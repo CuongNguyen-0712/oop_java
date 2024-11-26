@@ -135,11 +135,5 @@ class menuBillManager{
     }
 }
 
-// Lớp chính với menu
-public class Main {
-    public static void main(String[] args) {
-    menuBillManager menuBill = new menuBillManager();
-    menuBill.menu();
-    }
-}
+
 

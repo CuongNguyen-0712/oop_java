@@ -1,4 +1,6 @@
 package BillManager;
+import java.io.*;
+import java.util.*;
 // Lớp hóa đơn
 class Bill {
     private String id;
@@ -40,7 +42,7 @@ class Bill {
         this.dateBuy= dateBuy;
     }
     
-    public List<DetailBill> getListOfDetailBill() {
+    public Vector<DetailBill> getListOfDetailBill() {
         return listOfDetailBill;
     }
     
