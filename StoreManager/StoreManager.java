@@ -19,14 +19,15 @@ public class StoreManager {
     public static void startProgram() {
         while (true) {
             System.out.println("\n");
-            System.out.println("Quản lí cửa hàng bán sách !");
+            System.out.println("=== QUAN LI CUA HANG SACH ===");
             System.out.println("---------------------------");
             System.out.println("Vui lòng chọn chức năng để thao tác: ");
-            System.out.println("1. Quản lí sách.");
-            System.out.println("2. Quản lí hóa đơn.");
-            System.out.println("3. Quản lí nhân viên.");
-            System.out.println("4. Lưu");
-            System.out.println("5. Ket thuc chuong trinh");
+            System.out.println("1. Quản lí sách");
+            System.out.println("2. Quản lí hóa đơn");
+            System.out.println("3. Quản lí nhân viên");
+            System.out.println("4. Thống kê");
+            System.out.println("5. Lưu");
+            System.out.println("6. Ket thuc chuong trinh");
             System.out.print("Vui lòng nhập lựa chọn: ");
 
             try {
@@ -43,10 +44,13 @@ public class StoreManager {
                         StaffManager.manage();
                         break;
                     case 4:
+                        Statistics.manage();
+                        break;
+                    case 5:
                         StoreManager.saveFile();
                         System.out.println("Lưu thanh cong! \n");
                         break;
-                    case 5:
+                    case 6:
                         System.out.println("Lưu thành công. Kết thúc chương trình!");
                         System.exit(0);
                         break;

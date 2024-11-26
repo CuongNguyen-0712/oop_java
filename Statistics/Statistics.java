@@ -1,12 +1,12 @@
 package Statistics;
 
-import feature.inputScanner;
-import StaffManager.StaffManager;
-import BillManager.Bill;
-import BillManager.BillManager;
-import BookManager.BookManager;
-
-import java.util.Vector;
+//import feature.inputScanner;
+//import StaffManager.StaffManager;
+//import BillManager.Bill;
+//import BillManager.BillManager;
+//import BookManager.BookManager;
+//
+//import java.util.Vector;
 
 public class Statistics {
 //    public static void bookStorage(BookManager listOfBook) {
@@ -30,4 +30,8 @@ public class Statistics {
 //    public static bookSale(BillManager listOfBill) {
 //
 //    }
+
+    public static void manage(){
+
+    }
 }

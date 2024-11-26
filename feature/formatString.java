@@ -21,11 +21,12 @@ public class formatString {
         String formatTitle = "|%-10s|%-36s|%-22s|%-23s|%-12s|%-12s|%-18s|\n";
 
         System.out.println(border);
-        System.out.printf(formatTitle, "ID", "Tên sách", "Tác giả", "Nhà xuất bản", "Giá tiền", "Số lượng", "Sách bán chạy");
+        System.out.printf(formatTitle, "ID", "Tên sách", "Tác giả", "Nhà xuất bản", "Giá tiền", "Số lượng", "S1" +
+                "ách bán chạy");
         System.out.println(border);
 
         for (Book book : books) {
-            System.out.printf(format, book.getID(), book.getName(), book.getAuthor(), book.getPublisher(), book.getCost(), book.getQuantity(), book.getIsBestSeller() ? "Có" : "Không");
+            System.out.printf(format, book.getID(), book.getName(), book.getAuthor(), book.getPublisher(), book.getCost() + ".000VND", book.getQuantity(), book.getIsBestSeller() ? "Có" : "Không");
         }
         System.out.println(border);
     }
@@ -41,7 +42,7 @@ public class formatString {
         System.out.println(border);
         System.out.printf(formatTitle, "ID", "Tên sách", "Tác giả", "Nhà xuất bản", "Giá tiền", "Số lượng", title, "Sách bán chạy");
         System.out.println(border);
-        System.out.printf(format, id, name, author, publisher, cost, quantity, specialAttribute, isBestSeller);
+        System.out.printf(format, id, name, author, publisher, cost + ".000VND", quantity, specialAttribute, isBestSeller);
         System.out.println(border);
     }
 }

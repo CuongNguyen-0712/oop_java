@@ -9,7 +9,7 @@ import feature.inputScanner;
 
 public class BookManager {
     private static final Vector<Book> listOfBook = new Vector<>();
-    static final String filePath = "V:\\Develop\\Develop IntelliJ IDEA\\Project_1\\src\\data\\dataBook.txt";
+    private static final String filePath = "V:\\Develop\\Develop IntelliJ IDEA\\Project_1\\src\\data\\dataBook.txt";
 
     public static Vector<Book> getListOfBook() {
         return listOfBook;
@@ -51,7 +51,8 @@ public class BookManager {
 
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Loi doc du lieu, vui long thu lai!");
+            System.exit(1);
         }
     }
 
@@ -89,11 +90,11 @@ public class BookManager {
                 wt.write("\n");
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Loi luu du lieu, vui long thu lai!");
         }
     }
     
-    public static void addBook() {
+    public static void add() {
         int choice;
 
         do {
@@ -124,7 +125,7 @@ public class BookManager {
     }
 
 
-    public static void deleteBook() {
+    public static void delete() {
         System.out.print("Nhap ma sach muon xoa: ");
         String id = inputScanner.input.nextLine();
 
@@ -244,7 +245,7 @@ public class BookManager {
         }
     }
 
-    public static void searchBook() {
+    public static void search() {
         boolean flag = false;
         System.out.print("Nhap ma sach muon tim: ");
         String searchValue = inputScanner.input.nextLine();
@@ -273,7 +274,7 @@ public class BookManager {
         }
     }
 
-    public static void displayListofBook() {
+    public static void display() {
         System.out.println("\n");
         System.out.println("----DANH SACH SACH---\n");
         formatString.toStringBook(listOfBook);
@@ -304,19 +305,19 @@ public class BookManager {
                 int choice = Integer.parseInt(value);
                 switch (choice) {
                     case 1:
-                        BookManager.addBook();
+                        BookManager.add();
                         break;
                     case 2:
-                        BookManager.deleteBook();
+                        BookManager.delete();
                         break;
                     case 3:
                         BookManager.modifyBook();
                         break;
                     case 4:
-                        BookManager.searchBook();
+                        BookManager.search();
                         break;
                     case 5:
-                        BookManager.displayListofBook();
+                        BookManager.display();
                         break;
                     case 6:
                         return;
