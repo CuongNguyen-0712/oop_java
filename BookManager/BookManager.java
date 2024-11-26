@@ -9,9 +9,10 @@ import feature.inputScanner;
 
 public class BookManager {
     private static final Vector<Book> listOfBook = new Vector<>();
+
     private static final String filePath = "V:\\Develop\\Develop IntelliJ IDEA\\Project_1\\src\\data\\dataBook.txt";
 
-    public static Vector<Book> getListOfBook() {
+    public static Vector<Book> getList() {
         return listOfBook;
     }
 
