@@ -71,6 +71,11 @@ public class BillDetail {
         return category;
     }
 
+    public String getID()
+    {
+        return idBook;
+    }
+
     // Phương thức nhập
     public void add() {
         BookManager.display();
