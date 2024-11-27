@@ -5,11 +5,8 @@ import java.time.format.DateTimeParseException;
 import java.util.*;
 import java.time.*;
 
-import BillManager.*;
-
 import feature.*;
 
-// Lớp hóa đơn
 public class Bill {
     private String id;
     private String dateBuy;
@@ -32,11 +29,10 @@ public class Bill {
         this.dateBuy = dateBuy;
         this.nameCashier = nameCashier;
         this.nameCustomer = nameCustomer;
-        this.bill = new Vector<>();
+        this.bill = bill;
         this.totalBill = totalBill;
     }
 
-    // Change chỉ sửa tên nv và ngày nên lấy get/set 2 cái thôi
     public String getNameCashier() {
         return this.nameCashier;
     }
@@ -53,17 +49,22 @@ public class Bill {
         this.dateBuy = dateBuy;
     }
 
-    public Vector<BillDetail> getBill() {
+    public String getNameCustomer(){
+        return nameCustomer;
+    }
+
+    public Vector<BillDetail> getBill(){
         return bill;
+    }
+
+    public long getTotalBill(){
+        return totalBill;
     }
 
     public String getId() {
         return this.id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public long calcTotalBill() {
         totalBill = 0;
@@ -74,7 +75,7 @@ public class Bill {
     }
 
     public void add() {
-        id = "HD" + BillManager.getListOfBill().size();
+        id = "HD" + (int) (Math.random() * 1000);
 
         System.out.print("Ban co muon thay doi ngay mua (mac dinh la hom nay) (y/n): ");
         String choice = inputScanner.input.nextLine();
@@ -82,31 +83,28 @@ public class Bill {
         if (choice.equalsIgnoreCase("y")) {
             while (true) {
                 System.out.println("Nhap ngay mua (dd/mm/yyyy): ");
-                try{
-                DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                try {
+                    DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                     LocalDate date = LocalDate.parse(inputScanner.input.nextLine(), dateFormat);
                     dateBuy = date.format(dateFormat);
                     break;
-                }
-                catch (DateTimeParseException e){
+                } catch (DateTimeParseException e) {
                     System.out.println("Vui long nhap dung cu phap \n");
                 }
             }
-        }
-        else{
+        } else {
             LocalDateTime date = LocalDateTime.now();
             dateBuy = date.getDayOfMonth() + "/" + date.getMonthValue() + "/" + date.getYear();
         }
 
-        System.out.println("Nhap ten nhan vien thu ngan: ");
+        System.out.print("Nhap ten nhan vien thu ngan: ");
         nameCashier = inputScanner.input.nextLine();
 
-        System.out.println("Nhap ten khach hang: ");
+        System.out.print("Nhap ten khach hang: ");
         nameCustomer = inputScanner.input.nextLine();
 
-        System.out.println("Nhap so luong mat hang ban mua: ");
-        int detailCount = inputScanner.input.nextInt();
-        inputScanner.input.nextLine();
+        System.out.print("Nhap so luong mat hang ban mua: ");
+        int detailCount = Integer.parseInt(inputScanner.input.nextLine());
 
         for (int i = 0; i < detailCount; i++) {
             System.out.println("Nhap chi tiet hoa don thu " + (i + 1) + ":");
@@ -118,17 +116,17 @@ public class Bill {
     }
 
     public void display() {
-        System.out.println("ID: " + id);
+        System.out.println("\n-----------------------------");
+        System.out.println("Ma hoa don: " + id);
         System.out.println("Ngay mua : " + dateBuy);
         System.out.println("Nhan vien thu ngan: " + nameCashier);
         System.out.println("Khach hang: " + nameCustomer);
+        System.out.println("+++++++++++++++++++++++++++++");
         System.out.println("Chi tiet hoa don:");
-
         for (BillDetail detail : bill) {
             detail.display();
-            System.out.println("---------------------");
         }
         System.out.println("Tong hoa don: " + calcTotalBill() + ".000VND");
+        System.out.println("-----------------------------");
     }
-
 }

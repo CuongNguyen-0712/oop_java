@@ -1,10 +1,14 @@
 package StaffManager;
 
-import feature.inputScanner;
+import feature.*;
+
+import java.util.*;
 
 class Guard extends Staff {
 
     private String martialArt;
+
+    private static final HashSet<String> martialArtList = new HashSet<>();
 
     public Guard() {
     }
@@ -21,28 +25,29 @@ class Guard extends Staff {
     @Override
     public void add() {
         super.add();
-//        do {
-//            System.out.println("Nhap vo thuat cua bao ve :");
-//            martialArt = inputScanner.input.nextLine();
-//        } while (!martialArt.equalsIgnoreCase("Muay Thai")
-//                || !martialArt.equalsIgnoreCase("Vovinam")
-//                || !martialArt.equalsIgnoreCase("Boxing")
-//                || !martialArt.equalsIgnoreCase("Karate")
-//                || !martialArt.equalsIgnoreCase("Taekwondo")
-//                || !martialArt.equalsIgnoreCase("CQC")
-//                || !martialArt.equalsIgnoreCase("Capeoira")
-//                || !martialArt.equalsIgnoreCase("Judo")
-//                || !martialArt.equalsIgnoreCase("Jinjutsu")
-//                || !martialArt.equalsIgnoreCase("Wrestling")
-//                || !martialArt.equalsIgnoreCase("Kudo")
-//                || !martialArt.equalsIgnoreCase("Systema")
-//                || !martialArt.equalsIgnoreCase("Aikido")
-//                || !martialArt.equalsIgnoreCase("MMA")
-//                || !martialArt.equalsIgnoreCase("Kyoukshin Karate"));
+        martialArtList.add("Muay Thai");
+        martialArtList.add("Vovinam");
+        martialArtList.add("Boxing");
+        martialArtList.add("Karate");
+        martialArtList.add("Taekwondo");
+        martialArtList.add("CQC");
+        martialArtList.add("Capeoira");
+        martialArtList.add("Judo");
+        martialArtList.add("Jinjutsu");
+        martialArtList.add("Wrestling");
+        martialArtList.add("Kudo");
+        martialArtList.add("Systema");
+        martialArtList.add("Aikido");
+        martialArtList.add("MMA");
+        martialArtList.add("Kyoukshin Karate");
+        do {
+            System.out.print("Nhap vo thuat cua bao ve: ");
+            martialArt = inputScanner.input.nextLine();
+        } while (!martialArtList.contains(martialArt));
     }
         @Override
         public void display () {
-
+            formatString.toStringTypeStaff(this.getID(), this.getName(), this.getSalary(), martialArt, "Vo thuat");
         }
 
         @Override

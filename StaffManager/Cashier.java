@@ -1,5 +1,5 @@
 package StaffManager;
-import feature.inputScanner;
+import feature.*;
 
 class Cashier extends Staff{
     private int countBill;
@@ -19,13 +19,13 @@ class Cashier extends Staff{
     @Override
     public void add() {
         super.add();
-        System.out.println("Nhap tien bo cua thu ngan :");
-        countBill = inputScanner.input.nextInt();
-        inputScanner.input.nextLine();
+        System.out.print("Nhap tien bo cua thu ngan: ");
+        countBill = Integer.parseInt(inputScanner.input.nextLine());
     }
 
     @Override
     public void display() {
+        formatString.toStringTypeStaff(this.getID(), this.getName(), this.getSalary(), String.valueOf(countBill), "Tien bo");
     }
 
     @Override

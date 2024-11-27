@@ -3,13 +3,13 @@ package StaffManager;
 import IBook.IBookStore;
 import feature.inputScanner;
 
-abstract class Staff implements IBookStore {
+abstract public class Staff implements IBookStore {
     private String id;
     private String name;
     private int salary;
 
-    public Staff() {
-        id = StaffManager.getId();
+    public Staff(){
+
     }
 
     public Staff(Staff newStaff) {
@@ -26,16 +26,17 @@ abstract class Staff implements IBookStore {
 
     @Override
     public void add() {
-        System.out.println("Nhap ten nhan vien :");
+        id = "NV" + (int) (Math.random() * 1000);
+        System.out.print("Nhap ten nhan vien: ");
         name = inputScanner.input.nextLine();
-        System.out.println("Nhap luong co ban cua nhan vien : ");
-        salary = inputScanner.input.nextInt();
-        inputScanner.input.nextLine();
+        System.out.print("Nhap luong co ban cua nhan vien (.000 VND): ");
+        salary = Integer.parseInt(inputScanner.input.nextLine());
     }
 
     public String getID(){
         return id;
     }
+
     public void setName(String name) {
         this.name = name;
     }

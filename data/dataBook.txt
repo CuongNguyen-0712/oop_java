@@ -4,7 +4,8 @@ Thao tung tam li
 Shannon Thomas
 Tre
 180
-30
+0
+false
 adult
 
 2
@@ -13,7 +14,8 @@ One Piece
 Oda Eiichiro
 Shueisha
 200
-12
+30
+false
 30
 
 3
@@ -23,5 +25,6 @@ Nguyen Nhat Anh
 Tre
 100
 20
+true
 Viet Nam
 

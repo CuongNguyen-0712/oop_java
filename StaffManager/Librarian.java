@@ -1,11 +1,12 @@
 package StaffManager;
 
-import feature.inputScanner;
+import feature.*;
 
 class Librarian extends Staff {
     private int specialization;
 
     public Librarian() {
+
     }
 
     public void setSpecial(int special)
@@ -22,14 +23,13 @@ class Librarian extends Staff {
     @Override
     public void add() {
         super.add();
-        System.out.println("Nhap cap do sap xep cua thu thu :");
-        specialization = inputScanner.input.nextInt();
-        inputScanner.input.nextLine();
+        System.out.print("Nhap cap do sap xep cua thu thu: ");
+        specialization = Integer.parseInt(inputScanner.input.nextLine());
     }
 
     @Override
     public void display() {
-
+        formatString.toStringTypeStaff(this.getID(), this.getName(), this.getSalary(), String.valueOf(specialization), "Cap do sap xep");
     }
 
     @Override

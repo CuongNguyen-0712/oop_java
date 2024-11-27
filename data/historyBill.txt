@@ -1,0 +1,30 @@
+B001
+2024-11-27
+John Doe
+Jane Smith
+500
+P001
+2
+250
+
+B002
+2024-11-28
+Alice Brown
+Tom White
+1600
+P002
+4
+250
+P003
+1
+600
+
+HD595
+27/11/2024
+dwqd
+dwqd
+1800
+Thao tung tam li
+180
+10
+

@@ -11,7 +11,7 @@ public class BookManager {
     private static final Vector<Book> listOfBook = new Vector<>();
     private static final String filePath = "V:\\Develop\\Develop IntelliJ IDEA\\Project_1\\src\\data\\dataBook.txt";
 
-    public static Vector<Book> getListOfBook() {
+    public static Vector<Book> getList() {
         return listOfBook;
     }
 
@@ -27,20 +27,21 @@ public class BookManager {
                 String publisher = br.readLine();
                 int cost = Integer.parseInt(br.readLine());
                 int quantity = Integer.parseInt(br.readLine());
+                boolean isBestSeller = Boolean.parseBoolean(br.readLine());
                 switch (type) {
                     case 1:
-                        String audience = br.readLine();
-                        listOfBook.add(new PsychologyBook(id, name, author, publisher, cost, quantity, audience));
+                         String audience = br.readLine();
+                        listOfBook.add(new PsychologyBook(id, name, author, publisher, cost, quantity, isBestSeller, audience));
                         br.readLine();
                         break;
                     case 2:
                         int volume = Integer.parseInt(br.readLine());
-                        listOfBook.add(new MangaBook(id, name, author, publisher, cost, quantity, volume));
+                        listOfBook.add(new MangaBook(id, name, author, publisher, cost, quantity, isBestSeller, volume));
                         br.readLine();
                         break;
                     case 3:
                         String nation = br.readLine();
-                        listOfBook.add(new LiteratureBook(id, name, author, publisher, cost, quantity, nation));
+                        listOfBook.add(new LiteratureBook(id, name, author, publisher, cost, quantity, isBestSeller, nation));
                         br.readLine();
                         break;
                     default:
@@ -78,6 +79,7 @@ public class BookManager {
                 wt.write(book.getPublisher() + "\n");
                 wt.write(book.getCost() + "\n");
                 wt.write(book.getQuantity() + "\n");
+                wt.write(book.getIsBestSeller() + "\n");
 
                 if (indexBookType == 1) {
                     wt.write(((PsychologyBook) book).getAudience() + "\n");
@@ -93,10 +95,9 @@ public class BookManager {
             System.out.println("Loi luu du lieu, vui long thu lai!");
         }
     }
-    
+
     public static void add() {
         int choice;
-
         do {
             System.out.println("Chon loai sach ban muon them: 1. Sach Tam Ly Hoc  2. Manga   3. Sach Van Hoc");
             choice = inputScanner.input.nextInt();
@@ -120,7 +121,6 @@ public class BookManager {
 
             newBook.add();
             listOfBook.add(newBook);
-
         } while (choice < 1 || choice > 3);
     }
 
@@ -164,7 +164,7 @@ public class BookManager {
                 break;
             }
         }
-      
+
         if (!flag) {
             System.out.println("Ma sach khong hop le!!!\n");
         }
@@ -254,15 +254,7 @@ public class BookManager {
             if (listOfBook.get(i).getID().equalsIgnoreCase(searchValue)) {
                 System.out.println("\n");
                 System.out.println("----THONG TIN SACH CAN TIM---\n");
-                if(listOfBook.get(i) instanceof PsychologyBook){
-                    listOfBook.get(i).display();
-                }
-                else if(listOfBook.get(i) instanceof LiteratureBook){
-                    listOfBook.get(i).display();
-                }
-                else{
-                    listOfBook.get(i).display();
-                }
+                listOfBook.get(i).display();
                 System.out.println("\n");
                 flag = true;
                 break;
@@ -275,8 +267,7 @@ public class BookManager {
     }
 
     public static void display() {
-        System.out.println("\n");
-        System.out.println("----DANH SACH SACH---\n");
+        System.out.println("\n----DANH SACH SACH---\n");
         formatString.toStringBook(listOfBook);
         System.out.print("Nhấn Enter tiếp tục...");
         inputScanner.input.nextLine();

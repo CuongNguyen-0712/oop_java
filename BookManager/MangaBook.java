@@ -13,9 +13,9 @@ public class MangaBook extends Book
         count++;
     }
 
-    public MangaBook(String id, String name, String author, String publisher, int cost, int quantity, int volume)
+    public MangaBook(String id, String name, String author, String publisher, int cost, int quantity, boolean isBestSeller, int volume)
     {
-        super(id, name, author, publisher, cost, quantity);
+        super(id, name, author, publisher, cost, quantity, isBestSeller);
         this.volume = volume;
         count++;
     }
@@ -40,7 +40,6 @@ public class MangaBook extends Book
         inputScanner.input.nextLine();
     }
 
-    // @Override public void display()
 
     public int getVolume()
     {

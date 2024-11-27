@@ -13,9 +13,9 @@ public class PsychologyBook extends Book
         count++;
     }
 
-    public PsychologyBook(String id, String name, String author, String publisher, int cost, int quantity, String audience)
+    public PsychologyBook(String id, String name, String author, String publisher, int cost, int quantity, boolean isBestSeller, String audience)
     {
-        super(id, name, author, publisher, cost, quantity);
+        super(id, name, author, publisher, cost, quantity, isBestSeller);
         this.audience = audience;
         count++;
     }
@@ -38,9 +38,7 @@ public class PsychologyBook extends Book
         System.out.print("Nhap doi tuong doc gia:");
         audience = inputScanner.input.nextLine();
     }
-
-    // @Override public void display()
-
+    
     public String getAudience()
     {
         return audience;

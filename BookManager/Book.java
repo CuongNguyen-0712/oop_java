@@ -20,7 +20,7 @@ public class Book implements IBookStore
         quantity = 0;
     }
 
-    public Book(String id, String name, String author, String publisher, int cost, int quantity)
+    public Book(String id, String name, String author, String publisher, int cost, int quantity, boolean isBestSeller)
     {
         this.id = id;
         this.name = name;
@@ -28,6 +28,7 @@ public class Book implements IBookStore
         this.publisher = publisher;
         this.cost = cost;
         this.quantity = quantity;
+        this.isBestSeller = isBestSeller;
     }
 
     public void add()

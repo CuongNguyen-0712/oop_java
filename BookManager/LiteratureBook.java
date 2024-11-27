@@ -11,8 +11,8 @@ public class LiteratureBook extends Book {
         count++;
     }
 
-    public LiteratureBook(String id, String name, String author, String publisher, int cost, int quantity, String nation) {
-        super(id, name, author, publisher, cost, quantity);
+    public LiteratureBook(String id, String name, String author, String publisher, int cost, int quantity, boolean isBestSeller, String nation) {
+        super(id, name, author, publisher, cost, quantity, isBestSeller);
         this.nation = nation;
         count++;
     }
@@ -32,8 +32,6 @@ public class LiteratureBook extends Book {
         System.out.print("Tac pham thuoc ve quoc gia: ");
         nation = inputScanner.input.nextLine();
     }
-
-    // @Override public void display()
 
     public String getNation() {
         return nation;

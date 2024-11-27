@@ -3,8 +3,6 @@ package BillManager;
 import feature.*;
 import BookManager.*;
 
-import java.awt.desktop.SystemSleepEvent;
-
 public class BillDetail {
     private String nameBook;
     private int costBook, quantityBook;
@@ -48,24 +46,21 @@ public class BillDetail {
         this.quantityBook = quantityBook;
     }
 
-    // Tính calcCost
-    // Có thể tính cho 1 quyển nhiều thể loại và 1 quyển 1 thể loai
     public int calcCost() {
         return costBook * quantityBook;
     }
 
-    // Phương thức nhập
     public void add() {
         BookManager.display();
 
         Book bookBill = null;
         while (true) {
-            System.out.println("Nhap ten sach: ");
+            System.out.print("Nhap ten sach: ");
             String value = inputScanner.input.nextLine();
             boolean flag = false;
-            for (Book book : BookManager.getListOfBook()) {
+            for (Book book : BookManager.getList()) {
                 if (book.getName().equalsIgnoreCase(value)) {
-                    nameBook = value;
+                    nameBook = book.getName();
                     bookBill = book;
                     flag = true;
                     break;
@@ -86,7 +81,7 @@ public class BillDetail {
         while(true) {
             try {
                 int value = Integer.parseInt(inputScanner.input.nextLine());
-                if(value < 0 || value > bookBill.getQuantity()){
+                if(value <= 0 || value > bookBill.getQuantity()){
                     System.out.println("Gia tri khong hop le, vui long nhap lai ! \n");
                 }
                 else {
@@ -101,13 +96,13 @@ public class BillDetail {
 
     }
 
-    // Phương thức xuất
     public void display() {
+        System.out.println("-----------------------------");
         System.out.println("Ten sach: " + nameBook);
         System.out.println("Gia: " + costBook + ".000 VND");
-
         System.out.println("So Luong: " + quantityBook);
         System.out.println("Tong: " + calcCost() + ".000 VND");
+        System.out.println("-----------------------------");
     }
 }
 

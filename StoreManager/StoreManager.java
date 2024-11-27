@@ -10,10 +10,12 @@ import feature.inputScanner;
 public class StoreManager {
     public static void readFile() {
         BookManager.readData();
+        BillManager.readData();
     }
 
     public static void saveFile() {
         BookManager.saveData();
+        BillManager.saveData();
     }
 
     public static void startProgram() {
@@ -51,6 +53,7 @@ public class StoreManager {
                         System.out.println("Lưu thanh cong! \n");
                         break;
                     case 6:
+                        StoreManager.saveFile();
                         System.out.println("Lưu thành công. Kết thúc chương trình!");
                         System.exit(0);
                         break;
