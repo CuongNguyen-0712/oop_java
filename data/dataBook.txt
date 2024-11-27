@@ -5,6 +5,7 @@ Thomas Harris
 Nha Nam
 99
 32
+false
 nguoi lon
 
 1
@@ -14,6 +15,7 @@ Peter Swanson
 Vibook
 115
 20
+false
 Chuyen gia
 
 1
@@ -23,6 +25,7 @@ Cao Minh
 Vibook
 200
 15
+false
 Nguoi lon
 
 1
@@ -32,6 +35,7 @@ Dale Carnegie
 Van hoc
 89
 44
+false
 Nguoi lon
 
 1
@@ -41,6 +45,7 @@ Tu Thinh Phong
 The Gioi
 120
 39
+false
 moi nguoi
 
 1
@@ -50,6 +55,7 @@ Ahn Jooyeun
 Van hoc
 60
 120
+true
 moi nguoi
 
 2
@@ -59,6 +65,7 @@ Gosho
 Kim Dong
 28
 40
+false
 105
 
 2
@@ -68,6 +75,7 @@ Fujiko F.Fujio
 Kim Dong
 22
 30
+false
 45
 
 2
@@ -77,6 +85,7 @@ Eiicho Oda
 Kim Dong
 27
 100
+false
 109
 
 2
@@ -86,6 +95,7 @@ Yoshito Usui
 Kim Dong
 27
 80
+false
 50
 
 2
@@ -95,6 +105,7 @@ Ono Eriko
 Tre
 25
 35
+false
 32
 
 2
@@ -104,6 +115,7 @@ Mashima Hiro
 Hai Phong
 80
 70
+false
 63
 
 2
@@ -113,6 +125,7 @@ Nikichi Tobita
 Kadokawa
 875
 25
+true
 7
 
 3
@@ -122,6 +135,7 @@ Vu Trong Phung
 Van Hoc
 50
 24
+false
 Viet Nam
 
 3
@@ -131,6 +145,7 @@ Nam Cao
 Van Hoc
 70
 34
+false
 Viet Nam
 
 3
@@ -140,6 +155,7 @@ Nguyen Du
 Van Hoc
 50
 123
+true
 Viet Nam
 
 3
@@ -149,6 +165,7 @@ Miyazaki
 Zair0u
 708
 12
+true
 Nhat Ban
 
 3
@@ -158,6 +175,7 @@ Park Tae Jun
 PTJ
 203
 2000
+true
 Han Quoc
 
 1
@@ -167,6 +185,7 @@ YigeXiangShang
 ShangHai
 89
 45
+true
 Moi nguoi
 
 1
@@ -176,6 +195,7 @@ Won Syeon Ahn
 GangDong J
 98
 99
+true
 Nguoi lon
 
 3
@@ -185,5 +205,5 @@ Tek it
 American Document
 170
 32
+true
 Mi
-

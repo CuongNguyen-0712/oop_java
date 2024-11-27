@@ -189,5 +189,34 @@ public class StaffManager implements IBookStore {
     public static void manage() {
 
     }
+    public static void countByJobStaff(){
+        int countCa = 0;
+        int countGu = 0;
+        int countLi = 0;
+        for (Staff staff : listOfStaff)
+        {
+            if (staff instanceof Cashier)
+            {
+                countCa++;
+            }
+            else if (staff instanceof Guard)
+            {
+                countGu++;
+            }
+            else countLi++;
+        }
+        System.out.println("Tong so luong nhan vien thu ngan : "+countCa);
+        System.out.println("Tong so luong bao ve : "+countGu);
+        System.out.println("Tong so luong thu thu : "+countLi);
+    }
+    public static long totalSalary()
+    {
+        long total = 0;
+        for (Staff staff : listOfStaff)
+        {
+            total += staff.getSalary();
+        }
+        return total;
+    }
 }
 

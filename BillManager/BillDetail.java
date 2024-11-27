@@ -6,7 +6,7 @@ import BookManager.*;
 import java.awt.desktop.SystemSleepEvent;
 
 public class BillDetail {
-    private String nameBook;
+    private String idBook,nameBook,category;
     private int costBook, quantityBook;
 
     public BillDetail() {
@@ -19,6 +19,19 @@ public class BillDetail {
         this.nameBook = nameBook;
         this.costBook = costBook;
         this.quantityBook = quantityBook;
+    }
+
+    public BillDetail(Book book)
+    {
+        idBook = book.getID();
+        nameBook = book.getName();
+        costBook = book.getCost();
+        if (book instanceof MangaBook)
+        category = "manga";
+        else if (book instanceof LiteratureBook)
+        category = "literature";
+        else 
+        category = "psychology";
     }
 
     // Get/Set nameBook
@@ -54,6 +67,10 @@ public class BillDetail {
         return costBook * quantityBook;
     }
 
+    public String getCategory(){
+        return category;
+    }
+
     // Phương thức nhập
     public void add() {
         BookManager.display();
@@ -63,7 +80,7 @@ public class BillDetail {
             System.out.println("Nhap ten sach: ");
             String value = inputScanner.input.nextLine();
             boolean flag = false;
-            for (Book book : BookManager.getListOfBook()) {
+            for (Book book : BookManager.getList()) {
                 if (book.getName().equalsIgnoreCase(value)) {
                     nameBook = value;
                     bookBill = book;
@@ -109,6 +126,7 @@ public class BillDetail {
         System.out.println("So Luong: " + quantityBook);
         System.out.println("Tong: " + calcCost() + ".000 VND");
     }
+
 }
 
 

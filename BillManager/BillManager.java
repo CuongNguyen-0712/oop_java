@@ -1,6 +1,9 @@
 package BillManager;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
+
 
 import feature.*;
 
@@ -8,7 +11,7 @@ public class BillManager {
 
     private static final Vector<Bill> listOfBill = new Vector<>();
 
-    public static Vector<Bill> getListOfBill(){
+    public static Vector<Bill> getList() {
         return listOfBill;
     }
 
@@ -19,6 +22,7 @@ public class BillManager {
 
     }
 
+    // import inputScanner
     public static void delete() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhap ID hoa don can xoa: ");
@@ -83,16 +87,25 @@ public class BillManager {
         }
     }
 
+    public static long allTotalBill() {
+        long total = 0;
+        for (Bill bill : listOfBill) {
+            bill.calcTotalBill();
+            total += bill.calcTotalBill();
+        }
+        return total;
+    }
+
     public static void manage() {
         while (true) {
-        System.out.println("\n==== QUAN LY HOA DON ====");
-        System.out.println("1. Them hoa don");
-        System.out.println("2. Xoa hoa don");
-        System.out.println("3. Sua thong tin hoa don");
-        System.out.println("4. Tim kiem hoa don");
-        System.out.println("5. Hien thi danh sach hoa don");
-        System.out.println("6. Thoat");
-        System.out.print("Nhua chon cua ban: ");
+            System.out.println("\n==== QUAN LY HOA DON ====");
+            System.out.println("1. Them hoa don");
+            System.out.println("2. Xoa hoa don");
+            System.out.println("3. Sua thong tin hoa don");
+            System.out.println("4. Tim kiem hoa don");
+            System.out.println("5. Hien thi danh sach hoa don");
+            System.out.println("6. Thoat");
+            System.out.print("Nhua chon cua ban: ");
 
             try {
                 String value = inputScanner.input.nextLine();
@@ -124,5 +137,33 @@ public class BillManager {
                 System.out.println("Gia tri khong hop le, vui long nhap lai!\n");
             }
         }
+    }
+
+    public static boolean dateCheck(String dateBuy1, String dateBuy2) {
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        LocalDate localDate1 = LocalDate.parse(dateBuy1, dateFormat);
+        LocalDate localDate2 = LocalDate.parse(dateBuy2, dateFormat);
+
+        return !localDate1.isAfter(localDate2);
+    }
+
+    public static Vector<Bill>sortDate(){
+        Vector<Bill> temp = listOfBill;
+             Comparator<Bill> dateCompare = new Comparator<Bill>() {
+                @Override
+                public int compare(Bill bill1, Bill bill2) {
+                    String date1 = bill1.getDateBuy();
+                    String date2 = bill2.getDateBuy();
+                    if (dateCheck(date1, date2)) {
+                        return -1; 
+                    } else {
+                        return 1; 
+                    }
+                }
+            };
+    
+            Collections.sort(temp,dateCompare);
+            return temp;
     }
 }

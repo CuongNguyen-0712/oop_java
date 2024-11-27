@@ -53,7 +53,7 @@ public class Bill {
         this.dateBuy = dateBuy;
     }
 
-    public Vector<BillDetail> getBill() {
+    public Vector<BillDetail> getList() {
         return bill;
     }
 
@@ -74,7 +74,7 @@ public class Bill {
     }
 
     public void add() {
-        id = "HD" + BillManager.getListOfBill().size();
+        id = "HD" + BillManager.getList().size();
 
         System.out.print("Ban co muon thay doi ngay mua (mac dinh la hom nay) (y/n): ");
         String choice = inputScanner.input.nextLine();
@@ -130,5 +130,4 @@ public class Bill {
         }
         System.out.println("Tong hoa don: " + calcTotalBill() + ".000VND");
     }
-
 }
