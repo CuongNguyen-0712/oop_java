@@ -11,6 +11,11 @@ class Cashier extends Staff{
         this.countBill = countBill;
     }
 
+    public int getCountBill()
+    {
+        return countBill;
+    }
+
     public void setCountBill(int bill)
     {
         countBill = bill;
