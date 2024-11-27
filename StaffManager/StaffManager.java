@@ -56,14 +56,14 @@ public class StaffManager implements IBookStore {
         System.out.println("Nhap ma nhan vien muon sua: ");
         String id = inputScanner.input.nextLine();
 
-        for (int i = 0; i < listOfStaff.size(); i++) {
-            if (listOfStaff.get(i).getID().equalsIgnoreCase(id)) {
+        for (Staff staff : listOfStaff) {
+            if (staff.getID().equalsIgnoreCase(id)) {
                 found = false;
                 while (true) {
                     System.out.println("Chon thong tin muon sua:");
                     System.out.println("1. Ten nhan vien");
                     System.out.println("2. Luong");
-                    System.out.println("3." + listOfStaff.get(i).getOwnAtributte());
+                    System.out.println("3." + staff.getOwnAtributte());
                     System.out.println("4. Thoat");
 
                     try {
@@ -74,7 +74,7 @@ public class StaffManager implements IBookStore {
                             case 1:
                                 System.out.println("Nhap ten nhan vien moi: ");
                                 String name = inputScanner.input.nextLine();
-                                listOfStaff.get(i).setName(name);
+                                staff.setName(name);
                                 System.out.println("Cap nhat ten nhan vien thanh cong!\n");
                                 break;
                             case 2:
@@ -82,7 +82,7 @@ public class StaffManager implements IBookStore {
                                 try {
                                     int salary = inputScanner.input.nextInt();
                                     inputScanner.input.nextLine();
-                                    listOfStaff.get(i).setSalary(salary);
+                                    staff.setSalary(salary);
                                     System.out.println("Cap nhat luong thanh cong!\n");
                                 } catch (Exception e) {
                                     System.out.println("Vui long nhap so nguyen hop le!");
@@ -90,24 +90,24 @@ public class StaffManager implements IBookStore {
                                 }
                                 break;
                             case 3:
-                                listOfStaff.get(i).showUnique();
-                                if (listOfStaff.get(i) instanceof Cashier) {
+                                staff.showUnique();
+                                if (staff instanceof Cashier) {
                                     System.out.println("Nhap tien bo moi: ");
                                     try {
                                         int countBill = inputScanner.input.nextInt();
                                         inputScanner.input.nextLine();
-                                        ((Cashier) listOfStaff.get(i)).setCountBill(countBill);
+                                        ((Cashier) staff).setCountBill(countBill);
                                         System.out.println("Cap nhat tien bo thanh cong!\n");
                                     } catch (Exception e) {
                                         System.out.println("Vui long nhap so tien bo hop le!");
                                         inputScanner.input.nextLine();
                                     }
-                                } else if (listOfStaff.get(i) instanceof Librarian) {
+                                } else if (staff instanceof Librarian) {
                                     try {
                                         System.out.println("Nhap cap do sap xep moi : ");
                                         int special = inputScanner.input.nextInt();
                                         inputScanner.input.nextLine();
-                                        ((Librarian) listOfStaff.get(i)).setSpecial(special);
+                                        ((Librarian) staff).setSpecial(special);
                                         System.out.println("Cap nhat cap do sap xep thanh cong!\n");
                                     } catch (Exception e) {
                                         System.out.println("Vui long nhap cap do sap xep hop le!");
@@ -116,7 +116,7 @@ public class StaffManager implements IBookStore {
                                 } else {
                                     System.out.println("Nhap vo thuat moi : ");
                                     String ma = inputScanner.input.nextLine();
-                                    ((Guard) listOfStaff.get(i)).setMA(ma);
+                                    ((Guard) staff).setMA(ma);
                                     System.out.println("Cap nhat vo thuat thanh cong!\n");
                                 }
                                 break;
@@ -159,10 +159,10 @@ public class StaffManager implements IBookStore {
         boolean found = false;
         System.out.println("Nhap ma nhan vien muon tim: ");
         String id = inputScanner.input.nextLine();
-        for (int i = 0; i < listOfStaff.size(); i++) {
-            if (listOfStaff.get(i).getID().equalsIgnoreCase(id)) {
+        for (Staff staff : listOfStaff) {
+            if (staff.getID().equalsIgnoreCase(id)) {
                 System.out.println("----THONG TIN NHAN VIEN CAN TIM---\n");
-                listOfStaff.get(i).display();
+                staff.display();
                 found = true;
                 break;
             }
