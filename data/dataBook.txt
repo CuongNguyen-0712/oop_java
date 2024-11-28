@@ -1,15 +1,15 @@
 1
-PB023
+P23
 Su im lang cua bay cuu
 Thomas Harris
 Nha Nam
 99
 32
-true
+false
 nguoi lon
 
 1
-PB231
+P231
 phac hoa chan dung ke pham toi
 Peter Swanson
 Vibook
@@ -19,17 +19,17 @@ false
 Chuyen gia
 
 1
-PB223
+P223
 Thien tai ben trai, ke dien ben phai
 Cao Minh
 Vibook
 200
 15
-true
+false
 Nguoi lon
 
 1
-PB843
+P843
 Thao tung tam ly dam dong
 Dale Carnegie
 Van hoc
@@ -39,27 +39,27 @@ false
 Nguoi lon
 
 1
-PB304
+P304
 Dinh luat Murphy
 Tu Thinh Phong
 The Gioi
 120
 39
-true
+false
 moi nguoi
 
 1
-PB954
+P954
 Tam ly hoc ve hoi chung Burn-out
 Ahn Jooyeun
 Van hoc
 60
 120
-false
+true
 moi nguoi
 
 2
-MG324
+M324
 Conan
 Gosho
 Kim Dong
@@ -69,7 +69,7 @@ false
 105
 
 2
-MG222
+M222
 Doraemon
 Fujiko F.Fujio
 Kim Dong
@@ -79,7 +79,7 @@ false
 45
 
 2
-MG001
+M001
 One Piece
 Eiicho Oda
 Kim Dong
@@ -89,17 +89,17 @@ false
 109
 
 2
-MG956
+M956
 Shin-cau be but chi
 Yoshito Usui
 Kim Dong
 27
 80
-true
+false
 50
 
 2
-MG888
+M888
 Nhoc Miko
 Ono Eriko
 Tre
@@ -109,27 +109,27 @@ false
 32
 
 2
-MG777
+M777
 Fairy Tail
 Mashima Hiro
 Hai Phong
 80
 70
-true
+false
 63
 
 2
-MG007
+M007
 Elden Ring
 Nikichi Tobita
 Kadokawa
 875
 25
-false
+true
 7
 
 3
-LI084
+L084
 So do
 Vu Trong Phung
 Van Hoc
@@ -139,7 +139,7 @@ false
 Viet Nam
 
 3
-LI23
+L23
 Chi Pheo
 Nam Cao
 Van Hoc
@@ -149,7 +149,7 @@ false
 Viet Nam
 
 3
-LI999
+L999
 Truyen Kieu
 Nguyen Du
 Van Hoc
@@ -159,7 +159,7 @@ true
 Viet Nam
 
 3
-LI007
+L007
 Dark Souls 3
 Miyazaki
 Zair0u
@@ -169,7 +169,7 @@ true
 Nhat Ban
 
 3
-LI001
+L001
 Lookism
 Park Tae Jun
 PTJ
@@ -179,27 +179,27 @@ true
 Han Quoc
 
 1
-PB589
+P589
 Cach de thau hieu trai tim
 YigeXiangShang
 ShangHai
 89
 45
-false
+true
 Moi nguoi
 
 1
-PB999
+P999
 Suy nghi cua thien tai
 Won Syeon Ahn
 GangDong J
 98
 99
-false
+true
 Nguoi lon
 
 3
-LI005
+L005
 The moon
 Tek it
 American Document
@@ -207,4 +207,3 @@ American Document
 32
 true
 Mi
-

@@ -10,13 +10,13 @@ import feature.inputScanner;
 public class BookManager {
     private static final Vector<Book> listOfBook = new Vector<>();
     private static final String filePath = "V:\\Develop\\Develop IntelliJ IDEA\\Project_1\\src\\data\\dataBook.txt";
+    // Hãy thay đổi đường dẫn file trên tùy thuộc vào IDE hoặc text-editor đang sử dụng
 
     public static Vector<Book> getList() {
-        return listOfBook;
+        return new Vector<>(listOfBook);
     }
 
     public static void readData() {
-        // Hãy thay đổi đường dẫn file trên tùy thuộc vào IDE hoặc text-editor đang sử dụng
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -287,15 +287,16 @@ public class BookManager {
 
     public static void manage() {
         while (true) {
-            System.out.println("\n");
-            System.out.println("Quản lí sách: ");
-            System.out.println("1. Thêm sách");
-            System.out.println("2. Xóa sách");
-            System.out.println("3. Chỉnh sửa sách");
-            System.out.println("4. Tìm kiếm sách");
-            System.out.println("5. Hiện thị sách");
-            System.out.println("6. Quay lại");
-            System.out.print("Nhập lựa chọn của bạn: ");
+            listOfBook.removeIf(book -> book.getQuantity() == 0);
+            System.out.println("\n=== QUAN LI SACH ===");
+            System.out.println("--------------------");
+            System.out.println("1. Them sach");
+            System.out.println("2. Xoa sach");
+            System.out.println("3. Chinh sua sach");
+            System.out.println("4. Tim kiem sach");
+            System.out.println("5. Hien thi sach");
+            System.out.println("6. Quay lai");
+            System.out.print("Nhap lua chon cua ban: ");
 
             try {
                 String value = inputScanner.input.nextLine();

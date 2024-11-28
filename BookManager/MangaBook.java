@@ -53,6 +53,6 @@ public class MangaBook extends Book
 
     @Override
     public void display() {
-        formatString.toStringCartory(this.getID(), this.getName(), this.getAuthor(), this.getPublisher(), this.getCost(), this.getQuantity(), String.valueOf(getVolume()), "Số tập", this.getIsBestSeller() ? "Có": "Không");
+        formatString.toStringCartory(this.getID(), this.getName(), this.getAuthor(), this.getPublisher(), this.getCost(), this.getQuantity(), String.valueOf(getVolume()), "So tap", this.getIsBestSeller() ? "Có": "Không");
     }
 }

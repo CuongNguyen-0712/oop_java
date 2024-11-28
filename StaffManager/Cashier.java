@@ -1,14 +1,25 @@
 package StaffManager;
 import feature.*;
 
-class Cashier extends Staff{
+public class Cashier extends Staff{
     private int countBill;
+    private static int count = 0;
+
     public Cashier() {
     }
 
     public Cashier(String id, String name, int salary, int countBill) {
         super(id, name, salary);
         this.countBill = countBill;
+        count++;
+    }
+
+    public static void deCountStaff(){
+        count--;
+    }
+
+    public static int countStaff(){
+        return count;
     }
 
     public void setCountBill(int bill)

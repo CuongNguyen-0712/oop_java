@@ -43,6 +43,6 @@ public class LiteratureBook extends Book {
 
     @Override
     public void display() {
-        formatString.toStringCartory(this.getID(), this.getName(), this.getAuthor(), this.getPublisher(), this.getCost(), this.getQuantity(), this.getNation(), "Quốc gia", this.getIsBestSeller() ? "Có" : "Khồng");
+        formatString.toStringCartory(this.getID(), this.getName(), this.getAuthor(), this.getPublisher(), this.getCost(), this.getQuantity(), this.getNation(), "Quoc gia", this.getIsBestSeller() ? "Có" : "Khồng");
     }
 }

@@ -8,9 +8,10 @@ import java.io.*;
 public class StaffManager {
     private static final Vector<Staff> listOfStaff = new Vector<>();
     private static final String filePath = "V:\\Develop\\Develop IntelliJ IDEA\\Project_1\\src\\data\\dataStaff.txt";
+    // Hãy thay đổi đường dẫn file trên tùy thuộc vào IDE hoặc text-editor đang sử dụng
 
     public static Vector<Staff> getList() {
-        return listOfStaff;
+        return new Vector<>(listOfStaff);
     }
 
     public static void readData() {
@@ -26,9 +27,9 @@ public class StaffManager {
                 if (indexStaff == 1) {
                     staff = new Cashier(id, name, salary, Integer.parseInt(privateAttribute));
                 } else if (indexStaff == 2) {
-                    staff = new Guard(id, name, salary, privateAttribute);
-                } else if (indexStaff == 3) {
                     staff = new Librarian(id, name, salary, Integer.parseInt(privateAttribute));
+                } else if (indexStaff == 3) {
+                    staff = new Guard(id, name, salary, privateAttribute);
                 }
 
                 listOfStaff.add(staff);
@@ -38,6 +39,27 @@ public class StaffManager {
         } catch (Exception e) {
             System.out.println("Loi doc du lieu, vui long thu lai!");
             System.exit(1);
+        }
+    }
+
+    public static void saveData() {
+        try (BufferedWriter wt = new BufferedWriter(new FileWriter(filePath))) {
+            for (int i = 0; i < listOfStaff.size(); i++) {
+                if (listOfStaff.get(i) instanceof Cashier) {
+                    wt.write("1" + "\n");
+                } else if (listOfStaff.get(i) instanceof Librarian) {
+                    wt.write("2" + "\n");
+                } else if (listOfStaff.get(i) instanceof Guard) {
+                    wt.write("3" + "\n");
+                }
+                wt.write(listOfStaff.get(i).getID() + "\n");
+                wt.write(listOfStaff.get(i).getName() + "\n");
+                wt.write(listOfStaff.get(i).getSalary() + "\n");
+                wt.write(listOfStaff.get(i).getAttributeValue() + "\n");
+                wt.write("\n");
+            }
+        } catch (Exception e) {
+            System.out.println("Loi luu du lieu, vui long thu lai!");
         }
     }
 
@@ -77,27 +99,6 @@ public class StaffManager {
         }
     }
 
-    public static void saveData() {
-        try (BufferedWriter wt = new BufferedWriter(new FileWriter(filePath))) {
-            for (int i = 0; i < listOfStaff.size(); i++) {
-                if(listOfStaff.get(i) instanceof Cashier){
-                    wt.write("1" + "\n");
-                }else if(listOfStaff.get(i) instanceof Guard){
-                    wt.write("2" + "\n");
-                }else if(listOfStaff.get(i) instanceof Librarian){
-                    wt.write("3" + "\n");
-                }
-                wt.write(listOfStaff.get(i).getID() + "\n");
-                wt.write(listOfStaff.get(i).getName() + "\n");
-                wt.write(listOfStaff.get(i).getSalary() + "\n");
-                wt.write(listOfStaff.get(i).getAttributeValue() + "\n");
-                wt.write("\n");
-            }
-        } catch (Exception e) {
-            System.out.println("Loi luu du lieu, vui long thu lai!");
-        }
-    }
-
     public static void delete() {
         StaffManager.display();
         System.out.print("\nNhap ma nhan vien muon xoa: ");
@@ -105,6 +106,15 @@ public class StaffManager {
         boolean found = false;
         for (int i = 0; i < listOfStaff.size(); i++) {
             if (listOfStaff.get(i).getID().equalsIgnoreCase(id)) {
+                if(listOfStaff.get(i) instanceof Cashier) {
+                    Cashier.deCountStaff();
+                }
+                else if(listOfStaff.get(i) instanceof Guard) {
+                    Guard.deCountStaff();
+                }
+                else if(listOfStaff.get(i) instanceof Librarian) {
+                    Librarian.deCountStaff();
+                }
                 listOfStaff.remove(i);
                 found = true;
                 break;
@@ -122,14 +132,14 @@ public class StaffManager {
         System.out.println("Nhap ma nhan vien muon sua: ");
         String id = inputScanner.input.nextLine();
 
-        for (int i = 0; i < listOfStaff.size(); i++) {
-            if (listOfStaff.get(i).getID().equalsIgnoreCase(id)) {
+        for (Staff staff : listOfStaff) {
+            if (staff.getID().equalsIgnoreCase(id)) {
                 found = true;
                 while (true) {
                     System.out.println("Chon thong tin muon sua:");
                     System.out.println("1. Ten nhan vien");
                     System.out.println("2. Luong");
-                    System.out.println("3. " + listOfStaff.get(i).getAttributeTitle());
+                    System.out.println("3." + staff.getAttributeTitle());
                     System.out.println("4. Thoat");
 
                     try {
@@ -139,7 +149,7 @@ public class StaffManager {
                             case 1:
                                 System.out.println("Nhap ten nhan vien moi: ");
                                 String name = inputScanner.input.nextLine();
-                                listOfStaff.get(i).setName(name);
+                                staff.setName(name);
                                 System.out.println("Cap nhat ten nhan vien thanh cong!\n");
                                 break;
                             case 2:
@@ -147,7 +157,7 @@ public class StaffManager {
                                 try {
                                     int salary = inputScanner.input.nextInt();
                                     inputScanner.input.nextLine();
-                                    listOfStaff.get(i).setSalary(salary);
+                                    staff.setSalary(salary);
                                     System.out.println("Cap nhat luong thanh cong!\n");
                                 } catch (Exception e) {
                                     System.out.println("Vui long nhap so nguyen hop le!");
@@ -155,24 +165,24 @@ public class StaffManager {
                                 }
                                 break;
                             case 3:
-                                listOfStaff.get(i).showUnique();
-                                if (listOfStaff.get(i) instanceof Cashier) {
+                                staff.showUnique();
+                                if (staff instanceof Cashier) {
                                     System.out.println("Nhap tien bo moi: ");
                                     try {
                                         int countBill = inputScanner.input.nextInt();
                                         inputScanner.input.nextLine();
-                                        ((Cashier) listOfStaff.get(i)).setCountBill(countBill);
+                                        ((Cashier) staff).setCountBill(countBill);
                                         System.out.println("Cap nhat tien bo thanh cong!\n");
                                     } catch (Exception e) {
                                         System.out.println("Vui long nhap so tien bo hop le!");
                                         inputScanner.input.nextLine();
                                     }
-                                } else if (listOfStaff.get(i) instanceof Librarian) {
+                                } else if (staff instanceof Librarian) {
                                     try {
                                         System.out.println("Nhap cap do sap xep moi : ");
                                         int special = inputScanner.input.nextInt();
                                         inputScanner.input.nextLine();
-                                        ((Librarian) listOfStaff.get(i)).setSpecial(special);
+                                        ((Librarian) staff).setSpecial(special);
                                         System.out.println("Cap nhat cap do sap xep thanh cong!\n");
                                     } catch (Exception e) {
                                         System.out.println("Vui long nhap cap do sap xep hop le!");
@@ -181,7 +191,7 @@ public class StaffManager {
                                 } else {
                                     System.out.println("Nhap vo thuat moi : ");
                                     String ma = inputScanner.input.nextLine();
-                                    ((Guard) listOfStaff.get(i)).setMA(ma);
+                                    ((Guard) staff).setMA(ma);
                                     System.out.println("Cap nhat vo thuat thanh cong!\n");
                                 }
                                 break;
@@ -229,9 +239,26 @@ public class StaffManager {
         inputScanner.input.nextLine();
     }
 
+    public static void countByJobStaff() {
+        System.out.println("So luong thu ngan: " + Cashier.countStaff());
+        System.out.println("So luong thu thu: " + Librarian.countStaff());
+        System.out.println("So luong bao ve: " + Guard.countStaff());
+    }
+
+    public static long totalSalary()
+    {
+        long total = 0;
+        for (Staff staff : listOfStaff)
+        {
+            total += staff.getSalary();
+        }
+        return total;
+    }
+
     public static void manage() {
         while (true) {
             System.out.println("\n==== QUAN LY NHAN VIEN ====");
+            System.out.println("---------------------------");
             System.out.println("1.Them nhan vien");
             System.out.println("2.Xoa nhan vien");
             System.out.println("3.Chinh sua nhan vien");

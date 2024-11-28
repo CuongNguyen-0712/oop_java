@@ -43,6 +43,7 @@ public class formatString {
         System.out.println(border);
         System.out.printf(format, id, name, author, publisher, cost + ".000VND", quantity, specialAttribute, isBestSeller);
         System.out.println(border);
+        System.out.print("\n");
     }
 
     public static void toStringStaff(Vector<Staff> staffs) {
@@ -67,5 +68,6 @@ public class formatString {
         System.out.println(border);
         System.out.printf(format, id, name, salary + "000VND", privateAttribute);
         System.out.println(border);
+        System.out.print("\n");
     }
 }

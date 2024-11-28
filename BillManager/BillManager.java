@@ -12,9 +12,10 @@ public class BillManager {
 
     private static final Vector<Bill> listOfBill = new Vector<>();
     private static final String filePath = "V:\\Develop\\Develop IntelliJ IDEA\\Project_1\\src\\data\\historyBill.txt";
+    // Hãy thay đổi đường dẫn file trên tùy thuộc vào IDE hoặc text-editor đang sử dụng
 
     public static Vector<Bill> getList() {
-        return listOfBill;
+        return new Vector<>(listOfBill);
     }
 
     public static void readData() {
@@ -38,26 +39,26 @@ public class BillManager {
                 listOfBill.add(new Bill(id, dateBuy, nameCashier, nameCustomer, bill, Long.parseLong(totalBill)));
             }
         } catch (Exception e) {
-            System.out.println("Loi luu du lieu, vui long thu lai!");
+            System.out.println("Loi doc du lieu, vui long thu lai!");
         }
     }
 
-    public static void saveData(){
-        try(BufferedWriter wt = new BufferedWriter(new FileWriter(filePath))){
-            for(Bill bill : listOfBill){
+    public static void saveData() {
+        try (BufferedWriter wt = new BufferedWriter(new FileWriter(filePath))) {
+            for (Bill bill : listOfBill) {
                 wt.write(bill.getId() + "\n");
                 wt.write(bill.getDateBuy() + "\n");
                 wt.write(bill.getNameCashier() + "\n");
                 wt.write(bill.getNameCustomer() + "\n");
                 wt.write(bill.getTotalBill() + "\n");
-                for(BillDetail detail : bill.getBill()){
+                for (BillDetail detail : bill.getBill()) {
                     wt.write(detail.getNameBook() + "\n");
                     wt.write(detail.getCostBook() + "\n");
                     wt.write(detail.getQuantityBook() + "\n");
                 }
                 wt.write("\n");
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Loi luu du lieu, vui long thu lai!");
         }
     }
@@ -161,6 +162,8 @@ public class BillManager {
             System.out.println("Danh sach hoa don trong!!! \n");
             return;
         }
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        listOfBill.sort(Comparator.comparing(bill -> LocalDate.parse(bill.getDateBuy(), formatter)));
         for (Bill bill : listOfBill) {
             bill.display();
         }
@@ -168,16 +171,26 @@ public class BillManager {
         inputScanner.input.nextLine();
     }
 
+    public static long allTotalBill() {
+        long total = 0;
+        for (Bill bill : listOfBill) {
+            bill.calcTotalBill();
+            total += bill.calcTotalBill();
+        }
+        return total;
+    }
+
     public static void manage() {
         while (true) {
             System.out.println("\n==== QUAN LY HOA DON ====");
+            System.out.println("-------------------------");
             System.out.println("1. Them hoa don");
             System.out.println("2. Xoa hoa don");
             System.out.println("3. Sua thong tin hoa don");
             System.out.println("4. Tim kiem hoa don");
             System.out.println("5. Hien thi danh sach hoa don");
             System.out.println("6. Thoat");
-            System.out.print("Nhua chon cua ban: ");
+            System.out.print("Nhap lua chon cua ban: ");
 
             try {
                 String value = inputScanner.input.nextLine();
@@ -210,4 +223,5 @@ public class BillManager {
             }
         }
     }
+
 }

@@ -5,6 +5,7 @@ import java.time.format.DateTimeParseException;
 import java.util.*;
 import java.time.*;
 
+import StaffManager.*;
 import feature.*;
 
 public class Bill {
@@ -97,8 +98,36 @@ public class Bill {
             dateBuy = date.getDayOfMonth() + "/" + date.getMonthValue() + "/" + date.getYear();
         }
 
-        System.out.print("Nhap ten nhan vien thu ngan: ");
-        nameCashier = inputScanner.input.nextLine();
+        Vector<Staff> cashiers = new Vector<>();
+
+        for (Staff staff : StaffManager.getList()) {
+            if (staff instanceof Cashier) {
+                cashiers.add(staff);
+            }
+        }
+
+        while(true){
+            boolean flag = false;
+            for(Staff cashier : cashiers){
+                cashier.display();
+            }
+
+            System.out.print("Nhap ten nhan vien thu ngan: ");
+            for(Staff cashier : cashiers){
+                if(cashier.getName().equalsIgnoreCase(inputScanner.input.nextLine())){
+                    nameCashier = cashier.getName();
+                    flag = true;
+                    break;
+                }
+            }
+
+            if(!flag){
+                System.out.println("Vui long nhap dung thu ngan duoc hien thi!");
+            }
+            else{
+                break;
+            }
+        }
 
         System.out.print("Nhap ten khach hang: ");
         nameCustomer = inputScanner.input.nextLine();

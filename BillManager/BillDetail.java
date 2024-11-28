@@ -4,7 +4,7 @@ import feature.*;
 import BookManager.*;
 
 public class BillDetail {
-    private String nameBook;
+    private String idBook, nameBook;
     private int costBook, quantityBook;
 
     public BillDetail() {
@@ -19,7 +19,10 @@ public class BillDetail {
         this.quantityBook = quantityBook;
     }
 
-    // Get/Set nameBook
+    public String getIDBook() {
+        return this.idBook;
+    }
+
     public String getNameBook() {
         return this.nameBook;
     }
@@ -28,16 +31,10 @@ public class BillDetail {
         this.nameBook = nameBook;
     }
 
-    // Get/Set costBook
     public int getCostBook() {
         return this.costBook;
     }
 
-    public void setCostBook(int costBook) {
-        this.costBook = costBook;
-    }
-
-    // Get/Set quantityBook
     public int getQuantityBook() {
         return this.quantityBook;
     }
@@ -66,25 +63,26 @@ public class BillDetail {
                     break;
                 }
             }
-            if(!flag){
+            if (!flag) {
                 System.out.println("Khong tim thay sach, vui long nhap lai! \n");
-            }
-            else{
+            } else if (bookBill.getQuantity() == 0) {
+                System.out.println("Sach da het, vui long chon sach moi!\n");
+            } else {
                 break;
             }
         }
 
+        idBook = bookBill.getID();
         costBook = bookBill.getCost();
 
         System.out.println("So luong sach con lai: " + bookBill.getQuantity());
-        System.out.println("Nhap so luong: ");
-        while(true) {
+        System.out.print("Nhap so luong: ");
+        while (true) {
             try {
                 int value = Integer.parseInt(inputScanner.input.nextLine());
-                if(value <= 0 || value > bookBill.getQuantity()){
+                if (value <= 0 || value > bookBill.getQuantity()) {
                     System.out.println("Gia tri khong hop le, vui long nhap lai ! \n");
-                }
-                else {
+                } else {
                     quantityBook = value;
                     bookBill.setQuantity(bookBill.getQuantity() - value);
                     break;

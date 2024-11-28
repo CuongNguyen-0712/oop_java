@@ -7,6 +7,7 @@ import java.util.*;
 class Guard extends Staff {
 
     private String martialArt;
+    private static int count = 0;
 
     private static final HashSet<String> martialArtList = new HashSet<>();
 
@@ -16,6 +17,15 @@ class Guard extends Staff {
     public Guard(String id, String name, int salary, String martialArt) {
         super(id, name, salary);
         this.martialArt = martialArt;
+        count++;
+    }
+
+    public static void deCountStaff(){
+        count--;
+    }
+
+    public static int countStaff(){
+        return count;
     }
 
     public void setMA(String MA) {

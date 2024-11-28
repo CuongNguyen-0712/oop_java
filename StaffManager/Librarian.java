@@ -4,9 +4,18 @@ import feature.*;
 
 class Librarian extends Staff {
     private int specialization;
+    private static int count = 0;
 
     public Librarian() {
 
+    }
+
+    public static void deCountStaff(){
+        count--;
+    }
+
+    public static int countStaff(){
+        return count;
     }
 
     public void setSpecial(int special)
@@ -18,6 +27,7 @@ class Librarian extends Staff {
     public Librarian(String id, String name, int salary, int specialization) {
         super(id, name, salary);
         this.specialization = specialization;
+        count++;
     }
 
     @Override

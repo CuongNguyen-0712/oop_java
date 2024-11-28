@@ -5,7 +5,7 @@ import feature.*;
 public class PsychologyBook extends Book
 {
     private String audience;
-    private static int count = 0;  //gán tạm bằng 0 nha
+    private static int count = 0;
 
     public PsychologyBook()
     {
@@ -51,6 +51,6 @@ public class PsychologyBook extends Book
 
     @Override
     public void display() {
-        formatString.toStringCartory(this.getID(), this.getName(), this.getAuthor(), this.getPublisher(), this.getCost(), this.getQuantity(), this.getAudience(), "Đối tượng", this.getIsBestSeller() ? "Có" : "Không");
+        formatString.toStringCartory(this.getID(), this.getName(), this.getAuthor(), this.getPublisher(), this.getCost(), this.getQuantity(), this.getAudience(), "Doi tuong", this.getIsBestSeller() ? "Có" : "Không");
     }
 }

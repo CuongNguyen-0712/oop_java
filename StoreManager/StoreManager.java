@@ -23,7 +23,7 @@ public class StoreManager {
     public static void startProgram() {
         while (true) {
             System.out.println("\n=== QUAN LI CUA HANG SACH ===");
-            System.out.println("---------------------------");
+            System.out.println("-----------------------------");
             System.out.println("Vui long chon chuc nang de thao tac: ");
             System.out.println("1. Quan li sach");
             System.out.println("2. Quan li hoa don");
@@ -32,7 +32,6 @@ public class StoreManager {
             System.out.println("5. Luu");
             System.out.println("6. Ket thuc chuong trinh");
             System.out.print("Vui long nhap lua chon: ");
-
 
             try {
                 String value = inputScanner.input.nextLine();
