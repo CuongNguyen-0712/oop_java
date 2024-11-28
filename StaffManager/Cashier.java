@@ -6,8 +6,8 @@ class Cashier extends Staff{
     public Cashier() {
     }
 
-    public Cashier(Staff newCashier, int countBill) {
-        super(newCashier);
+    public Cashier(String id, String name, int salary, int countBill) {
+        super(id, name, salary);
         this.countBill = countBill;
     }
 
@@ -33,8 +33,12 @@ class Cashier extends Staff{
         setSalary(countBill+getSalary());
     }
     @Override
-    public String getOwnAtributte(){
+    public String getAttributeTitle(){
         return "Tien bo";
+    }
+    @Override
+    public String getAttributeValue(){
+        return String.valueOf(countBill);
     }
     @Override
     public void showUnique(){

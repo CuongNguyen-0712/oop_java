@@ -11,26 +11,28 @@ public class StoreManager {
     public static void readFile() {
         BookManager.readData();
         BillManager.readData();
+        StaffManager.readData();
     }
 
     public static void saveFile() {
         BookManager.saveData();
         BillManager.saveData();
+        StaffManager.saveData();
     }
 
     public static void startProgram() {
         while (true) {
-            System.out.println("\n");
-            System.out.println("=== QUAN LI CUA HANG SACH ===");
+            System.out.println("\n=== QUAN LI CUA HANG SACH ===");
             System.out.println("---------------------------");
-            System.out.println("Vui lòng chọn chức năng để thao tác: ");
-            System.out.println("1. Quản lí sách");
-            System.out.println("2. Quản lí hóa đơn");
-            System.out.println("3. Quản lí nhân viên");
-            System.out.println("4. Thống kê");
-            System.out.println("5. Lưu");
+            System.out.println("Vui long chon chuc nang de thao tac: ");
+            System.out.println("1. Quan li sach");
+            System.out.println("2. Quan li hoa don");
+            System.out.println("3. Quan li nhan vien");
+            System.out.println("4. Thong ke");
+            System.out.println("5. Luu");
             System.out.println("6. Ket thuc chuong trinh");
-            System.out.print("Vui lòng nhập lựa chọn: ");
+            System.out.print("Vui long nhap lua chon: ");
+
 
             try {
                 String value = inputScanner.input.nextLine();

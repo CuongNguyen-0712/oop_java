@@ -15,8 +15,8 @@ class Librarian extends Staff {
     }
 
 
-    public Librarian(Staff newLibrian, int specialization) {
-        super(newLibrian);
+    public Librarian(String id, String name, int salary, int specialization) {
+        super(id, name, salary);
         this.specialization = specialization;
     }
 
@@ -37,8 +37,12 @@ class Librarian extends Staff {
         setSalary(getSalary() * specialization);
     }
     @Override
-    public String getOwnAtributte(){
+    public String getAttributeTitle(){
         return "Cap do sap xep";
+    }
+    @Override
+    public String getAttributeValue(){
+        return String.valueOf(specialization);
     }
     @Override
     public void showUnique(){

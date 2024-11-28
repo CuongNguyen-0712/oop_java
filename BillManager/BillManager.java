@@ -69,6 +69,8 @@ public class BillManager {
     }
 
     public static void delete() {
+        BillManager.display();
+
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhap ID hoa don can xoa: ");
         String id = sc.nextLine();
@@ -83,6 +85,8 @@ public class BillManager {
     }
 
     public static void modify() {
+        BillManager.display();
+
         System.out.print("Nhap ID hoa don can sua: ");
         String id = inputScanner.input.nextLine();
         boolean flag = false;

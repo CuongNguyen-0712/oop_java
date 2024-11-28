@@ -53,7 +53,10 @@ abstract public class Staff implements IBookStore {
         return salary;
     }
 
+    @Override
+    public void display() {}
     public abstract void work();
-    public abstract String getOwnAtributte();
+    public abstract String getAttributeTitle();
+    public abstract String getAttributeValue();
     public abstract void showUnique();
 }

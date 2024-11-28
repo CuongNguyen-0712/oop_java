@@ -2,13 +2,43 @@ package StaffManager;
 
 import feature.*;
 
-import java.util.Vector;
+import java.util.*;
+import java.io.*;
 
 public class StaffManager {
     private static final Vector<Staff> listOfStaff = new Vector<>();
+    private static final String filePath = "V:\\Develop\\Develop IntelliJ IDEA\\Project_1\\src\\data\\dataStaff.txt";
 
     public static Vector<Staff> getList() {
         return listOfStaff;
+    }
+
+    public static void readData() {
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                int indexStaff = Integer.parseInt(line);
+                String id = br.readLine();
+                String name = br.readLine();
+                int salary = Integer.parseInt(br.readLine());
+                String privateAttribute = br.readLine();
+                Staff staff = null;
+                if (indexStaff == 1) {
+                    staff = new Cashier(id, name, salary, Integer.parseInt(privateAttribute));
+                } else if (indexStaff == 2) {
+                    staff = new Guard(id, name, salary, privateAttribute);
+                } else if (indexStaff == 3) {
+                    staff = new Librarian(id, name, salary, Integer.parseInt(privateAttribute));
+                }
+
+                listOfStaff.add(staff);
+                br.readLine();
+            }
+
+        } catch (Exception e) {
+            System.out.println("Loi doc du lieu, vui long thu lai!");
+            System.exit(1);
+        }
     }
 
     public static void add() {
@@ -47,6 +77,27 @@ public class StaffManager {
         }
     }
 
+    public static void saveData() {
+        try (BufferedWriter wt = new BufferedWriter(new FileWriter(filePath))) {
+            for (int i = 0; i < listOfStaff.size(); i++) {
+                if(listOfStaff.get(i) instanceof Cashier){
+                    wt.write("1" + "\n");
+                }else if(listOfStaff.get(i) instanceof Guard){
+                    wt.write("2" + "\n");
+                }else if(listOfStaff.get(i) instanceof Librarian){
+                    wt.write("3" + "\n");
+                }
+                wt.write(listOfStaff.get(i).getID() + "\n");
+                wt.write(listOfStaff.get(i).getName() + "\n");
+                wt.write(listOfStaff.get(i).getSalary() + "\n");
+                wt.write(listOfStaff.get(i).getAttributeValue() + "\n");
+                wt.write("\n");
+            }
+        } catch (Exception e) {
+            System.out.println("Loi luu du lieu, vui long thu lai!");
+        }
+    }
+
     public static void delete() {
         StaffManager.display();
         System.out.print("\nNhap ma nhan vien muon xoa: ");
@@ -78,7 +129,7 @@ public class StaffManager {
                     System.out.println("Chon thong tin muon sua:");
                     System.out.println("1. Ten nhan vien");
                     System.out.println("2. Luong");
-                    System.out.println("3. " + listOfStaff.get(i).getOwnAtributte());
+                    System.out.println("3. " + listOfStaff.get(i).getAttributeTitle());
                     System.out.println("4. Thoat");
 
                     try {

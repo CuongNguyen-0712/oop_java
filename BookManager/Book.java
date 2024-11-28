@@ -50,10 +50,8 @@ public class Book implements IBookStore
         quantity = inputScanner.input.nextInt();
         inputScanner.input.nextLine();
 
-        System.out.println("Sach nay co phai bestseller khong? (y/n)");
-        bestSeller = inputScanner.input.nextLine();
-
-        isBestSeller = bestSeller.equalsIgnoreCase("y");
+        System.out.print("Sach nay co phai bestseller khong? (y/n): ");
+        isBestSeller = inputScanner.input.nextLine().equalsIgnoreCase("y");
     }
 
     public String getID()

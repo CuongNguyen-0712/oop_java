@@ -100,8 +100,8 @@ public class BookManager {
         int choice;
         do {
             System.out.println("Chon loai sach ban muon them: 1. Sach Tam Ly Hoc  2. Manga   3. Sach Van Hoc");
-            choice = inputScanner.input.nextInt();
-            inputScanner.input.nextLine();
+            System.out.print("Lua chon cua ban: ");
+            choice = Integer.parseInt(inputScanner.input.nextLine());
 
             Book newBook = null;
 
@@ -126,6 +126,8 @@ public class BookManager {
 
 
     public static void delete() {
+        BookManager.display();
+
         System.out.print("Nhap ma sach muon xoa: ");
         String id = inputScanner.input.nextLine();
 
@@ -152,7 +154,9 @@ public class BookManager {
         }
     }
 
-    public static void modifyBook() {
+    public static void modify() {
+        BookManager.display();
+
         boolean flag = false;
         System.out.print("Nhap ma sach muon sua: ");
         String id = inputScanner.input.nextLine();
@@ -187,34 +191,37 @@ public class BookManager {
             try {
                 String value = inputScanner.input.nextLine();
                 int choice = Integer.parseInt(value);
+                System.out.println("\nChinh sua thong tin sach:");
                 switch (choice) {
                     case 1:
-                        System.out.println("Nhap ten sach: ");
+                        System.out.print("Nhap ten sach: ");
                         String name = inputScanner.input.nextLine();
                         listOfBook.get(i).setName(name);
                         break;
                     case 2:
-                        System.out.println("Nhap ten tac gia: ");
+                        System.out.print("Nhap ten tac gia: ");
                         String author = inputScanner.input.nextLine();
                         listOfBook.get(i).setAuthor(author);
                         break;
                     case 3:
-                        System.out.println("Nhap nha xuat ban: ");
+                        System.out.print("Nhap nha xuat ban: ");
                         String publisher = inputScanner.input.nextLine();
                         listOfBook.get(i).setPublisher(publisher);
                         break;
                     case 4:
-                        System.out.println("Nhap gia: ");
+                        System.out.print("Nhap gia: ");
                         int cost = inputScanner.input.nextInt();
+                        inputScanner.input.nextLine();
                         listOfBook.get(i).setCost(cost);
                         break;
                     case 5:
-                        System.out.println("Nhap so luong: ");
+                        System.out.print("Nhap so luong: ");
                         int quantity = inputScanner.input.nextInt();
+                        inputScanner.input.nextLine();
                         listOfBook.get(i).setQuantity(quantity);
                         break;
                     case 6:
-                        System.out.println("Ban co muon giu vi tri Best Seller cua cuon sach nay khong (y/n) ?: ");
+                        System.out.print("Ban co muon giu vi tri Best Seller cua cuon sach nay khong (y/n): ");
                         String bestSeller = inputScanner.input.nextLine();
                         listOfBook.get(i).setIsBestSeller(bestSeller.equalsIgnoreCase("y"));
                         break;
@@ -247,13 +254,12 @@ public class BookManager {
 
     public static void search() {
         boolean flag = false;
-        System.out.print("Nhap ma sach muon tim: ");
+        System.out.print("Nhap ma sach hoac ten sach muon tim: ");
         String searchValue = inputScanner.input.nextLine();
 
         for (int i = 0; i < listOfBook.size(); i++) {
-            if (listOfBook.get(i).getID().equalsIgnoreCase(searchValue)) {
-                System.out.println("\n");
-                System.out.println("----THONG TIN SACH CAN TIM---\n");
+            if (listOfBook.get(i).getID().equalsIgnoreCase(searchValue) || listOfBook.get(i).getName().equalsIgnoreCase(searchValue)) {
+                System.out.println("\n----THONG TIN SACH CAN TIM---\n");
                 listOfBook.get(i).display();
                 System.out.println("\n");
                 flag = true;
@@ -302,7 +308,7 @@ public class BookManager {
                         BookManager.delete();
                         break;
                     case 3:
-                        BookManager.modifyBook();
+                        BookManager.modify();
                         break;
                     case 4:
                         BookManager.search();
