@@ -3,7 +3,6 @@ package BookManager;
 import java.io.*;
 import java.util.*;
 
-import StoreManager.StoreManager;
 import feature.formatString;
 import feature.inputScanner;
 
@@ -117,11 +116,15 @@ public class BookManager {
                     break;
                 default:
                     System.out.println("Lua chon khong hop le !!!\n");
+                    break;
             }
 
-            newBook.add();
-            listOfBook.add(newBook);
-        } while (choice < 1 || choice > 3);
+            if(newBook != null) {
+                newBook.add();
+                listOfBook.add(newBook);
+                return;
+            }
+        } while (true);
     }
 
 
@@ -287,7 +290,6 @@ public class BookManager {
 
     public static void manage() {
         while (true) {
-            listOfBook.removeIf(book -> book.getQuantity() == 0);
             System.out.println("\n=== QUAN LI SACH ===");
             System.out.println("--------------------");
             System.out.println("1. Them sach");

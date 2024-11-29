@@ -50,15 +50,15 @@ public class Bill {
         this.dateBuy = dateBuy;
     }
 
-    public String getNameCustomer(){
+    public String getNameCustomer() {
         return nameCustomer;
     }
 
-    public Vector<BillDetail> getBill(){
+    public Vector<BillDetail> getBill() {
         return bill;
     }
 
-    public long getTotalBill(){
+    public long getTotalBill() {
         return totalBill;
     }
 
@@ -87,8 +87,12 @@ public class Bill {
                 try {
                     DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                     LocalDate date = LocalDate.parse(inputScanner.input.nextLine(), dateFormat);
-                    dateBuy = date.format(dateFormat);
-                    break;
+                    if (date.getDayOfMonth() > 29 && date.getMonthValue() == 2) {
+                        System.out.println("Ngay khong hop le, vui long nhap lai! \n");
+                    } else {
+                        dateBuy = date.format(dateFormat);
+                        break;
+                    }
                 } catch (DateTimeParseException e) {
                     System.out.println("Vui long nhap dung cu phap \n");
                 }
@@ -106,25 +110,25 @@ public class Bill {
             }
         }
 
-        while(true){
+        while (true) {
             boolean flag = false;
-            for(Staff cashier : cashiers){
+            for (Staff cashier : cashiers) {
                 cashier.display();
             }
 
             System.out.print("Nhap ten nhan vien thu ngan: ");
-            for(Staff cashier : cashiers){
-                if(cashier.getName().equalsIgnoreCase(inputScanner.input.nextLine())){
+            String value = inputScanner.input.nextLine();
+            for (Staff cashier : cashiers) {
+                if (cashier.getName().equalsIgnoreCase(value)) {
                     nameCashier = cashier.getName();
                     flag = true;
                     break;
                 }
             }
 
-            if(!flag){
+            if (!flag) {
                 System.out.println("Vui long nhap dung thu ngan duoc hien thi!");
-            }
-            else{
+            } else {
                 break;
             }
         }

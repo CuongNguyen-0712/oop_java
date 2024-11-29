@@ -76,22 +76,21 @@ public class StaffManager {
                 switch (choice) {
                     case 1:
                         newStaff = new Cashier();
-                        newStaff.add();
-                        listOfStaff.add(newStaff);
-                        return;
+                        break;
                     case 2:
                         newStaff = new Librarian();
-                        newStaff.add();
-                        listOfStaff.add(newStaff);
-                        return;
+                        break;
                     case 3:
                         newStaff = new Guard();
-                        newStaff.add();
-                        listOfStaff.add(newStaff);
-                        return;
+                        break;
                     default:
                         System.out.println("Lua chon khong hop le !!!\n");
                         break;
+                }
+                if(newStaff != null){
+                    newStaff.add();
+                    listOfStaff.add(newStaff);
+                    return;
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Vui long nhap so nguyen hop le! \n");
@@ -250,6 +249,7 @@ public class StaffManager {
         long total = 0;
         for (Staff staff : listOfStaff)
         {
+            staff.work();
             total += staff.getSalary();
         }
         return total;

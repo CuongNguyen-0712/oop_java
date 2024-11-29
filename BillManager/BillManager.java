@@ -72,9 +72,8 @@ public class BillManager {
     public static void delete() {
         BillManager.display();
 
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Nhap ID hoa don can xoa: ");
-        String id = sc.nextLine();
+        System.out.print("Nhap ID hoa don can xoa: ");
+        String id = inputScanner.input.nextLine();
         for (int i = 0; i < listOfBill.size(); i++) {
             if (listOfBill.get(i).getId().equals(id)) {
                 listOfBill.remove(i);
@@ -110,13 +109,20 @@ public class BillManager {
                                 bill.setNameCashier(inputScanner.input.nextLine());
                                 break;
                             case 2:
-                                System.out.print("Nhap ngay mua moi (dd/mm/yyyy): ");
-                                try {
-                                    DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                                    LocalDate newDate = LocalDate.parse(inputScanner.input.nextLine(), dateFormat);
-                                    bill.setDateBuy(newDate.format(dateFormat));
-                                } catch (DateTimeParseException e) {
-                                    System.out.println("Dinh dang khong dung, vui long thu lai! \n");
+                                while (true) {
+                                    System.out.print("Nhap ngay mua moi (dd/mm/yyyy): ");
+                                    try {
+                                        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                                        LocalDate newDate = LocalDate.parse(inputScanner.input.nextLine(), dateFormat);
+                                        if (newDate.getDayOfMonth() > 29 && newDate.getMonthValue() == 2) {
+                                            System.out.println("Ngay khong hop le, vui long nhap lai! \n");
+                                        } else {
+                                            bill.setDateBuy(newDate.format(dateFormat));
+                                            break;
+                                        }
+                                    } catch (DateTimeParseException e) {
+                                        System.out.println("Dinh dang khong dung, vui long thu lai! \n");
+                                    }
                                 }
                                 break;
                             case 3:
@@ -144,7 +150,7 @@ public class BillManager {
         boolean flag = false;
 
         for (Bill bill : listOfBill) {
-            if (bill.getId().equals(id)) {
+            if (bill.getId().equalsIgnoreCase(id)) {
                 System.out.print("\n");
                 bill.display();
                 flag = true;
