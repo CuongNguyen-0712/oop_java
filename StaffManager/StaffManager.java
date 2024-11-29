@@ -250,6 +250,7 @@ public class StaffManager {
         long total = 0;
         for (Staff staff : listOfStaff)
         {
+            staff.work();
             total += staff.getSalary();
         }
         return total;

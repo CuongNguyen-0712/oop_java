@@ -72,11 +72,10 @@ public class BillManager {
     public static void delete() {
         BillManager.display();
 
-        Scanner sc = new Scanner(System.in);
         System.out.println("Nhap ID hoa don can xoa: ");
-        String id = sc.nextLine();
+        String id = inputScanner.input.nextLine();
         for (int i = 0; i < listOfBill.size(); i++) {
-            if (listOfBill.get(i).getId().equals(id)) {
+            if (listOfBill.get(i).getId().equalsIgnoreCase(id)) {
                 listOfBill.remove(i);
                 System.out.println("Da xoa hoa don ID: " + id);
                 return;
@@ -144,7 +143,7 @@ public class BillManager {
         boolean flag = false;
 
         for (Bill bill : listOfBill) {
-            if (bill.getId().equals(id)) {
+            if (bill.getId().equalsIgnoreCase(id)) {
                 System.out.print("\n");
                 bill.display();
                 flag = true;

@@ -29,9 +29,9 @@ public class Statistics {
 
     static class Summary {
         int quantity;
-        double totalPrice;
+        long totalPrice;
 
-        Summary(int quantity, double totalPrice) {
+        Summary(int quantity, long totalPrice) {
             this.quantity = quantity;
             this.totalPrice = totalPrice;
         }
