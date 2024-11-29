@@ -2,8 +2,9 @@ package BillManager;
 
 import feature.*;
 import BookManager.*;
+import IBook.IBookStore;
 
-public class BillDetail {
+public class BillDetail implements IBookStore{
     private String idBook, nameBook;
     private int costBook, quantityBook;
 
@@ -47,6 +48,7 @@ public class BillDetail {
         return costBook * quantityBook;
     }
 
+    @Override
     public void add() {
         BookManager.display();
 
@@ -94,6 +96,7 @@ public class BillDetail {
 
     }
 
+    @Override
     public void display() {
         System.out.println("-----------------------------");
         System.out.println("Ten sach: " + nameBook);

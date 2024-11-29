@@ -1,5 +1,6 @@
 package StaffManager;
 import feature.*;
+import BillManager.*;
 
 public class Cashier extends Staff{
     private int countBill;
@@ -41,6 +42,13 @@ public class Cashier extends Staff{
 
     @Override
     public void work() {
+        for (Bill bill : BillManager.getList())
+        {
+            if (bill.getNameCashier().equalsIgnoreCase(this.getName()))
+            {
+                countBill+=100;
+            }
+        }
         setSalary(countBill+getSalary());
     }
     @Override

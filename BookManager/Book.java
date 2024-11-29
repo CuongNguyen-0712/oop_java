@@ -7,8 +7,7 @@ public class Book implements IBookStore
 {
     private String id, name, author, publisher;
     private int cost, quantity;
-    String bestSeller;
-    boolean isBestSeller;
+    private boolean isBestSeller;
 
     public Book()
     {
@@ -31,6 +30,7 @@ public class Book implements IBookStore
         this.isBestSeller = isBestSeller;
     }
 
+    @Override
     public void add()
     {
         System.out.print("Nhap ten sach: ");

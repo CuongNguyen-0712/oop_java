@@ -3,12 +3,15 @@ package BillManager;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.*;
+
+import IBook.IBookStore;
+
 import java.time.*;
 
 import StaffManager.*;
 import feature.*;
 
-public class Bill {
+public class Bill implements IBookStore{
     private String id;
     private String dateBuy;
     private String nameCashier;
@@ -75,6 +78,7 @@ public class Bill {
         return totalBill;
     }
 
+    @Override
     public void add() {
         id = "HD" + (int) (Math.random() * 1000);
 
@@ -144,6 +148,7 @@ public class Bill {
         }
     }
 
+    @Override
     public void display() {
         System.out.println("\n-----------------------------");
         System.out.println("Ma hoa don: " + id);

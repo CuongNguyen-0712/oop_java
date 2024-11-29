@@ -75,7 +75,7 @@ public class BillManager {
         System.out.print("Nhap ID hoa don can xoa: ");
         String id = inputScanner.input.nextLine();
         for (int i = 0; i < listOfBill.size(); i++) {
-            if (listOfBill.get(i).getId().equals(id)) {
+            if (listOfBill.get(i).getId().equalsIgnoreCase(id)) {
                 listOfBill.remove(i);
                 System.out.println("Da xoa hoa don ID: " + id);
                 return;
