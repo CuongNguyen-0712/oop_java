@@ -114,12 +114,8 @@ public class BillManager {
                                     try {
                                         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                                         LocalDate newDate = LocalDate.parse(inputScanner.input.nextLine(), dateFormat);
-                                        if (newDate.getDayOfMonth() > 29 && newDate.getMonthValue() == 2) {
-                                            System.out.println("Ngay khong hop le, vui long nhap lai! \n");
-                                        } else {
-                                            bill.setDateBuy(newDate.format(dateFormat));
-                                            break;
-                                        }
+                                        bill.setDateBuy(newDate.format(dateFormat));
+                                        break;
                                     } catch (DateTimeParseException e) {
                                         System.out.println("Dinh dang khong dung, vui long thu lai! \n");
                                     }

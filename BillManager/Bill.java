@@ -87,12 +87,8 @@ public class Bill {
                 try {
                     DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                     LocalDate date = LocalDate.parse(inputScanner.input.nextLine(), dateFormat);
-                    if (date.getDayOfMonth() > 29 && date.getMonthValue() == 2) {
-                        System.out.println("Ngay khong hop le, vui long nhap lai! \n");
-                    } else {
-                        dateBuy = date.format(dateFormat);
-                        break;
-                    }
+                    dateBuy = date.format(dateFormat);
+                    break;
                 } catch (DateTimeParseException e) {
                     System.out.println("Vui long nhap dung cu phap \n");
                 }
