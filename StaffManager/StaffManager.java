@@ -138,7 +138,7 @@ public class StaffManager {
                     System.out.println("Chon thong tin muon sua:");
                     System.out.println("1. Ten nhan vien");
                     System.out.println("2. Luong");
-                    System.out.println("3." + staff.getAttributeTitle());
+                    System.out.println("3. " + staff.getAttributeTitle());
                     System.out.println("4. Thoat");
 
                     try {

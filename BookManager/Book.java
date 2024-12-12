@@ -42,13 +42,27 @@ public class Book implements IBookStore
         System.out.print("Nhap nha xuat ban: ");
         publisher = inputScanner.input.nextLine();
 
-        System.out.print("Nhap gia: ");
-        cost = inputScanner.input.nextInt();
-        inputScanner.input.nextLine();
-
-        System.out.print("Nhap so luong: ");
-        quantity = inputScanner.input.nextInt();
-        inputScanner.input.nextLine();
+        while (true)
+        {
+            try {
+                System.out.print("Nhap gia: ");
+                cost = Integer.parseInt(inputScanner.input.nextLine());
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Nhap so nguyen !\n");
+            }
+    
+        }
+        
+        while (true) {
+            try {
+                System.out.print("Nhap so luong: ");
+                quantity = Integer.parseInt(inputScanner.input.nextLine());
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Nhap so nguyen !\n");
+            }
+        }
 
         System.out.print("Sach nay co phai bestseller khong? (y/n): ");
         isBestSeller = inputScanner.input.nextLine().equalsIgnoreCase("y");

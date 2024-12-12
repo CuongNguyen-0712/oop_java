@@ -212,16 +212,28 @@ public class BookManager {
                         listOfBook.get(i).setPublisher(publisher);
                         break;
                     case 4:
-                        System.out.print("Nhap gia: ");
-                        int cost = inputScanner.input.nextInt();
-                        inputScanner.input.nextLine();
-                        listOfBook.get(i).setCost(cost);
+                    while (true) {
+                        try {
+                            System.out.print("Nhap gia: ");
+                            int cost = Integer.parseInt(inputScanner.input.nextLine());
+                            listOfBook.get(i).setCost(cost);   
+                            break; 
+                        } catch (NumberFormatException e) {
+                            System.out.println("Nhap so nguyen !\n");
+                        }
+                    }
                         break;
                     case 5:
-                        System.out.print("Nhap so luong: ");
-                        int quantity = inputScanner.input.nextInt();
-                        inputScanner.input.nextLine();
-                        listOfBook.get(i).setQuantity(quantity);
+                    while (true) {
+                        try {
+                            System.out.print("Nhap so luong: ");
+                            int quantity = Integer.parseInt(inputScanner.input.nextLine());
+                            listOfBook.get(i).setQuantity(quantity);
+                            break;
+                        } catch (NumberFormatException e) {
+                            System.out.println("Nhap so nguyen !\n");
+                        }
+                    }
                         break;
                     case 6:
                         System.out.print("Ban co muon giu vi tri Best Seller cua cuon sach nay khong (y/n): ");
@@ -234,10 +246,17 @@ public class BookManager {
                             String audience = inputScanner.input.nextLine();
                             ((PsychologyBook) listOfBook.get(i)).setAudience(audience);
                         } else if (listOfBook.get(i) instanceof MangaBook) {
-                            System.out.println("Nhap so tap: ");
-                            int volume = inputScanner.input.nextInt();
-                            ((MangaBook) listOfBook.get(i)).setVolume(volume);
-                            inputScanner.input.nextLine();
+                            while (true) {
+                                try {
+                                    System.out.println("Nhap so tap: ");
+                                    int volume = Integer.parseInt(inputScanner.input.nextLine());
+                                    ((MangaBook) listOfBook.get(i)).setVolume(volume);
+                                    break;
+                                } catch (NumberFormatException e) {
+                                    System.out.println("Nhap so nguyen !\n");
+                                }
+                            }
+
                         } else {
                             System.out.println("Tac pham thuoc ve quoc gia: ");
                             String nation = inputScanner.input.nextLine();
